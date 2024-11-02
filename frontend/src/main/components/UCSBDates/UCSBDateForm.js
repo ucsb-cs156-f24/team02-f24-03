@@ -21,12 +21,12 @@ function UCSBDateForm({
   // Note that even this complex regex may still need some tweaks
 
   // Stryker disable Regex
-  const isodate_regex =
-    /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
-  // Stryker restore Regex
+  //   const isodate_regex =
+  //     /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
+  //   // Stryker restore Regex
 
-  // Stryker disable next-line all
-  const yyyyq_regex = /((19)|(20))\d{2}[1-4]/i; // Accepts from 1900-2099 followed by 1-4.  Close enough.
+  //   // Stryker disable next-line all
+  //   const yyyyq_regex = /((19)|(20))\d{2}[1-4]/i; // Accepts from 1900-2099 followed by 1-4.  Close enough.
 
   return (
     <Form onSubmit={handleSubmit(submitAction)}>
@@ -57,31 +57,13 @@ function UCSBDateForm({
               isInvalid={Boolean(errors.quarterYYYYQ)}
               {...register("quarterYYYYQ", {
                 required: true,
-                pattern: yyyyq_regex,
+                // pattern: yyyyq_regex,
               })}
             />
             <Form.Control.Feedback type="invalid">
               {errors.quarterYYYYQ && "QuarterYYYYQ is required. "}
               {errors.quarterYYYYQ?.type === "pattern" &&
                 "QuarterYYYYQ must be in the format YYYYQ, e.g. 20224 for Fall 2022"}
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Col>
-        <Col>
-          <Form.Group className="mb-3">
-            <Form.Label htmlFor="localDateTime">Date (iso format)</Form.Label>
-            <Form.Control
-              data-testid="UCSBDateForm-localDateTime"
-              id="localDateTime"
-              type="datetime-local"
-              isInvalid={Boolean(errors.localDateTime)}
-              {...register("localDateTime", {
-                required: true,
-                pattern: isodate_regex,
-              })}
-            />
-            <Form.Control.Feedback type="invalid">
-              {errors.localDateTime && "LocalDateTime is required. "}
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
