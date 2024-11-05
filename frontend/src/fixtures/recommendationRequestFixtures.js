@@ -10,12 +10,12 @@ const recommendationRequestFixtures = {
   },
   threeRequests: [
     {
-    requesterEmail: "requester1@gmail.com",
-    professorEmail: "professor1@gmail.com",
-    explanation: "something1",
-    dateRequested: "2022-01-02T12:00:00",
-    dateNeeded: "2022-01-02T12:00:00",
-    done: false,
+      requesterEmail: "requester1@gmail.com",
+      professorEmail: "professor1@gmail.com",
+      explanation: "something1",
+      dateRequested: "2022-01-02T12:00:00",
+      dateNeeded: "2022-01-02T12:00:00",
+      done: false,
     },
     {
       requesterEmail: "requester2@gmail.com",
@@ -35,5 +35,5 @@ const recommendationRequestFixtures = {
     },
   ],
 };
-  
-  export { recommendationRequestFixtures };
+
+export { recommendationRequestFixtures };
