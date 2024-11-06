@@ -69,12 +69,14 @@ describe("ArticlesForm tests", () => {
   //   test("No Error messsages on good input", async () => {
   //     const mockSubmitAction = jest.fn();
 
+  //     await screen.findByTestId("ArticlesForm-title");
   //     render(
   //       <Router>
   //         <ArticlesForm submitAction={mockSubmitAction} />
   //       </Router>,
   //     );
   //     await screen.findByTestId("ArticlesForm-title");
+
 
   //     const titleField = screen.getByTestId("ArticlesForm-title");
   //     const urlField = screen.getByTestId("ArticlesForm-url");
@@ -91,6 +93,7 @@ describe("ArticlesForm tests", () => {
   //     fireEvent.click(submitButton);
 
   //     await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
+  //     await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
 
   //     expect(screen.queryByText(/Title is required./)).not.toBeInTheDocument();
   //     expect(screen.queryByText(/URL is required./)).not.toBeInTheDocument();
@@ -101,7 +104,20 @@ describe("ArticlesForm tests", () => {
   //     expect(
   //       screen.queryByText(/LocalDateTime is required./),
   //     ).not.toBeInTheDocument();
+  //     expect(screen.queryByText(/Title is required./)).not.toBeInTheDocument();
+  //     expect(screen.queryByText(/URL is required./)).not.toBeInTheDocument();
+  //     expect(
+  //       screen.queryByText(/Explanation is required./),
+  //     ).not.toBeInTheDocument();
+  //     expect(screen.queryByText(/Email is required./)).not.toBeInTheDocument();
+  //     expect(
+  //       screen.queryByText(/LocalDateTime is required./),
+  //     ).not.toBeInTheDocument();
 
+  //     expect(
+  //       screen.queryByText(/localDateTime must be in ISO format/),
+  //     ).not.toBeInTheDocument();
+  //   });
   //     expect(
   //       screen.queryByText(/localDateTime must be in ISO format/),
   //     ).not.toBeInTheDocument();
@@ -121,3 +137,4 @@ describe("ArticlesForm tests", () => {
     await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith(-1));
   });
 });
+
