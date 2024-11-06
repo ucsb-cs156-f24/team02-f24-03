@@ -91,15 +91,21 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
     fireEvent.click(submitButton);
 
     await screen.findByText(/Name is required/);
-    expect(screen.getByText(/Dining Commons Code is required/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Dining Commons Code is required/),
+    ).toBeInTheDocument();
     expect(screen.getByText(/Station is required/)).toBeInTheDocument();
 
     const nameInput = screen.getByTestId(`${testId}-name`);
     fireEvent.change(nameInput, { target: { value: "a".repeat(31) } });
     fireEvent.click(submitButton);
 
-    const diningCommonsCodeInput = screen.getByTestId(`${testId}-diningCommonsCode`);
-    fireEvent.change(diningCommonsCodeInput, { target: { value: "a".repeat(31) } });
+    const diningCommonsCodeInput = screen.getByTestId(
+      `${testId}-diningCommonsCode`,
+    );
+    fireEvent.change(diningCommonsCodeInput, {
+      target: { value: "a".repeat(31) },
+    });
     fireEvent.click(submitButton);
 
     const stationInput = screen.getByTestId(`${testId}-station`);
