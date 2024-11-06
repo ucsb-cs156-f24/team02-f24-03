@@ -87,17 +87,17 @@ describe("UCSBOrganizationTable tests", () => {
 
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-orgCode`),
-    ).toHaveTextContent("GG");
+    ).toHaveTextContent("ACM");
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-orgTranslationShort`),
-    ).toHaveTextContent("Gaucho Gaming");
+    ).toHaveTextContent("ACM");
 
     expect(
       screen.getByTestId(`${testId}-cell-row-1-col-orgCode`),
-    ).toHaveTextContent("ACM");
+    ).toHaveTextContent("GDC");
     expect(
       screen.getByTestId(`${testId}-cell-row-1-col-orgTranslationShort`),
-    ).toHaveTextContent("ACM");
+    ).toHaveTextContent("Game Dev");
 
     const editButton = screen.getByTestId(
       `${testId}-cell-row-0-col-Edit-button`,
@@ -141,17 +141,17 @@ describe("UCSBOrganizationTable tests", () => {
 
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-orgCode`),
-    ).toHaveTextContent("GG");
+    ).toHaveTextContent("ACM");
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-orgTranslationShort`),
-    ).toHaveTextContent("Gaucho Gaming");
+    ).toHaveTextContent("ACM");
 
     expect(
       screen.getByTestId(`${testId}-cell-row-1-col-orgCode`),
-    ).toHaveTextContent("ACM");
+    ).toHaveTextContent("GDC");
     expect(
       screen.getByTestId(`${testId}-cell-row-1-col-orgTranslationShort`),
-    ).toHaveTextContent("ACM");
+    ).toHaveTextContent("Game Dev");
 
     expect(screen.queryByText("Delete")).not.toBeInTheDocument();
     expect(screen.queryByText("Edit")).not.toBeInTheDocument();
@@ -176,10 +176,10 @@ describe("UCSBOrganizationTable tests", () => {
     // assert - check that the expected content is rendered
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-orgCode`),
-    ).toHaveTextContent("GG");
+    ).toHaveTextContent("ACM");
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-orgTranslationShort`),
-    ).toHaveTextContent("Gaucho Gaming");
+    ).toHaveTextContent("ACM");
 
     const editButton = screen.getByTestId(
       `${testId}-cell-row-0-col-Edit-button`,
@@ -191,7 +191,7 @@ describe("UCSBOrganizationTable tests", () => {
 
     // assert - check that the navigate function was called with the expected path
     await waitFor(() =>
-      expect(mockedNavigate).toHaveBeenCalledWith("/ucsborganizations/edit/GG"),
+      expect(mockedNavigate).toHaveBeenCalledWith("/ucsborganizations/edit/ACM"),
     );
   });
 
@@ -219,10 +219,10 @@ describe("UCSBOrganizationTable tests", () => {
     // assert - check that the expected content is rendered
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-orgCode`),
-    ).toHaveTextContent("GG");
+    ).toHaveTextContent("ACM");
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-orgTranslationShort`),
-    ).toHaveTextContent("Gaucho Gaming");
+    ).toHaveTextContent("ACM");
 
     const deleteButton = screen.getByTestId(
       `${testId}-cell-row-0-col-Delete-button`,
@@ -237,6 +237,6 @@ describe("UCSBOrganizationTable tests", () => {
     await waitFor(() => expect(axiosMock.history.delete.length).toBe(1));
     expect(axiosMock.history.delete[0].url).toEqual("/api/ucsborganizations");
     expect(axiosMock.history.delete[0].method).toEqual("delete");
-    expect(axiosMock.history.delete[0].params).toEqual({ orgCode: "GG" });
+    expect(axiosMock.history.delete[0].params).toEqual({ orgCode: "ACM" });
   });
 });
