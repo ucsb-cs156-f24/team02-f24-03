@@ -95,6 +95,14 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
     fireEvent.change(nameInput, { target: { value: "a".repeat(31) } });
     fireEvent.click(submitButton);
 
+    const diningCommonsCodeInput = screen.getByTestId(`${testId}-diningCommonsCode`);
+    fireEvent.change(diningCommonsCodeInput, { target: { value: "a".repeat(31) } });
+    fireEvent.click(submitButton);
+
+    const stationInput = screen.getByTestId(`${testId}-station`);
+    fireEvent.change(stationInput, { target: { value: "a".repeat(31) } });
+    fireEvent.click(submitButton);
+
     await waitFor(() => {
       expect(screen.getByText(/Max length 30 characters/)).toBeInTheDocument();
     });
