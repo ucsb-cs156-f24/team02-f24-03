@@ -50,10 +50,13 @@ describe("ArticlesCreatePage tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <ArticlesCreatePage />
+          <ArticlesCreatePage storybook={true} />
         </MemoryRouter>
       </QueryClientProvider>,
     );
+
+    // Check that it does not navigate when storybook is true
+    await waitFor(() => expect(mockNavigate).not.toHaveBeenCalled());
 
     await waitFor(() => {
       expect(screen.getByTestId("ArticlesForm-title")).toBeInTheDocument();
@@ -117,12 +120,13 @@ describe("ArticlesCreatePage tests", () => {
       dateadded: "2024-01-02T00:00",
     });
 
-    // Verify that toast was called with correct message
-    await waitFor(() =>
+    await waitFor(() => {
       expect(mockToast).toHaveBeenCalledWith(
         "New article Created - id: 11 title: Article1",
-      ),
-    );
+      );
+    });
+
+    await waitFor(() => expect(mockToast).not.toHaveBeenCalledWith(""));
 
     // Verify that navigation was called with correct path
     await waitFor(() =>
