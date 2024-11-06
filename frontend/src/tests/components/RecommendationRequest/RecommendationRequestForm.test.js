@@ -15,7 +15,7 @@ describe("RecommendationRequestForm tests", () => {
     render(
       <Router>
         <RecommendationRequestForm />
-      </Router>
+      </Router>,
     );
     await screen.findByText(/Professor Email/);
     await screen.findByText(/Create/);
@@ -25,8 +25,10 @@ describe("RecommendationRequestForm tests", () => {
   test("renders correctly when passing in a recommendation request", async () => {
     render(
       <Router>
-        <RecommendationRequestForm initialContents={recommendationRequestFixtures.oneRequest} />
-      </Router>
+        <RecommendationRequestForm
+          initialContents={recommendationRequestFixtures.oneRequest}
+        />
+      </Router>,
     );
     await screen.findByTestId(/RecommendationRequestForm-id/);
     expect(screen.getByText(/Id/)).toBeInTheDocument();
@@ -37,14 +39,24 @@ describe("RecommendationRequestForm tests", () => {
     render(
       <Router>
         <RecommendationRequestForm />
-      </Router>
+      </Router>,
     );
     await screen.findByTestId("RecommendationRequestForm-requesterEmail");
-    const requesterEmailField = screen.getByTestId("RecommendationRequestForm-professorEmail");
-    const professorEmailField = screen.getByTestId("RecommendationRequestForm-professorEmail");
-    const explanationField = screen.getByTestId("RecommendationRequestForm-explanation");
-    const dateRequestedField = screen.getByTestId("RecommendationRequestForm-dateRequested");
-    const dateNeededField = screen.getByTestId("RecommendationRequestForm-dateNeeded");
+    const requesterEmailField = screen.getByTestId(
+      "RecommendationRequestForm-professorEmail",
+    );
+    const professorEmailField = screen.getByTestId(
+      "RecommendationRequestForm-professorEmail",
+    );
+    const explanationField = screen.getByTestId(
+      "RecommendationRequestForm-explanation",
+    );
+    const dateRequestedField = screen.getByTestId(
+      "RecommendationRequestForm-dateRequested",
+    );
+    const dateNeededField = screen.getByTestId(
+      "RecommendationRequestForm-dateNeeded",
+    );
     const doneField = screen.getByTestId("RecommendationRequestForm-done");
     const submitButton = screen.getByTestId("RecommendationRequestForm-submit");
 
@@ -63,17 +75,20 @@ describe("RecommendationRequestForm tests", () => {
     render(
       <Router>
         <RecommendationRequestForm />
-      </Router>
+      </Router>,
     );
     const submitButton = screen.getByTestId("RecommendationRequestForm-submit");
 
     fireEvent.click(submitButton);
 
-
     // Check for the actual error messages displayed when inputs are missing
     await screen.findByText(/requesterEmail is required./i);
-    expect(screen.getByText(/professorEmail is required./i)).toBeInTheDocument();
-    expect(screen.getByText(/date requested is required./i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/professorEmail is required./i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/date requested is required./i),
+    ).toBeInTheDocument();
     expect(screen.getByText(/date needed is required./i)).toBeInTheDocument();
     expect(screen.getByText(/explanation is required./i)).toBeInTheDocument();
   });
@@ -84,24 +99,44 @@ describe("RecommendationRequestForm tests", () => {
     render(
       <Router>
         <RecommendationRequestForm submitAction={mockSubmitAction} />
-      </Router>
+      </Router>,
     );
     await screen.findByTestId("RecommendationRequestForm-professorEmail");
 
-    const professorEmailField = screen.getByTestId("RecommendationRequestForm-professorEmail");
-    const requesterEmailField = screen.getByTestId("RecommendationRequestForm-requesterEmail");
-    const dateRequestedField = screen.getByTestId("RecommendationRequestForm-dateRequested");
-    const dateNeededField = screen.getByTestId("RecommendationRequestForm-dateNeeded");
-    const explanationField = screen.getByTestId("RecommendationRequestForm-explanation");
+    const professorEmailField = screen.getByTestId(
+      "RecommendationRequestForm-professorEmail",
+    );
+    const requesterEmailField = screen.getByTestId(
+      "RecommendationRequestForm-requesterEmail",
+    );
+    const dateRequestedField = screen.getByTestId(
+      "RecommendationRequestForm-dateRequested",
+    );
+    const dateNeededField = screen.getByTestId(
+      "RecommendationRequestForm-dateNeeded",
+    );
+    const explanationField = screen.getByTestId(
+      "RecommendationRequestForm-explanation",
+    );
     const done = screen.getByTestId("RecommendationRequestForm-done");
     const submitButton = screen.getByTestId("RecommendationRequestForm-submit");
 
-    fireEvent.change(professorEmailField, { target: { value: "professor@example.com" } });
-    fireEvent.change(requesterEmailField, { target: { value: "requester@example.com" } });
-    fireEvent.change(dateRequestedField, { target: { value: "2024-11-01T12:00" } });
-    fireEvent.change(dateNeededField, { target: { value: "2024-12-01T12:00" } });
-    fireEvent.change(explanationField, { target: { value: "Explanation for recommendation" } });
-    fireEvent.change(done, { target: { value: "true" }});
+    fireEvent.change(professorEmailField, {
+      target: { value: "professor@example.com" },
+    });
+    fireEvent.change(requesterEmailField, {
+      target: { value: "requester@example.com" },
+    });
+    fireEvent.change(dateRequestedField, {
+      target: { value: "2024-11-01T12:00" },
+    });
+    fireEvent.change(dateNeededField, {
+      target: { value: "2024-12-01T12:00" },
+    });
+    fireEvent.change(explanationField, {
+      target: { value: "Explanation for recommendation" },
+    });
+    fireEvent.change(done, { target: { value: "true" } });
     fireEvent.click(submitButton);
 
     await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
@@ -111,12 +146,11 @@ describe("RecommendationRequestForm tests", () => {
     render(
       <Router>
         <RecommendationRequestForm />
-      </Router>
+      </Router>,
     );
     const cancelButton = screen.getByTestId("RecommendationRequest-cancel");
 
     fireEvent.click(cancelButton);
-
 
     await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith(-1));
   });
