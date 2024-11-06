@@ -28,7 +28,7 @@ export default function ArticlesIndexPage() {
           href="/articles/create"
           style={{ float: "right" }}
         >
-          Create Restaurant
+          Create Articles
         </Button>
       );
     }
@@ -38,7 +38,7 @@ export default function ArticlesIndexPage() {
     <BasicLayout>
       <div className="pt-2">
         {createButton()}
-        <h1>articles</h1>
+        <h1>Articles</h1>
         <ArticlesTable articles={articles} currentUser={currentUser} />
       </div>
     </BasicLayout>
