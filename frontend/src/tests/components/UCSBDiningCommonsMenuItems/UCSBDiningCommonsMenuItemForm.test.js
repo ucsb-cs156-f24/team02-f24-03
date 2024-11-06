@@ -57,7 +57,7 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
     expect(await screen.findByTestId(`${testId}-id`)).toBeInTheDocument();
     expect(screen.getByText(`Id`)).toBeInTheDocument();
 
-    const submitButton = await screen.getByTestId(`${testId}-submit`);
+    const submitButton = screen.getByTestId(`${testId}-submit`);
     expect(submitButton).toBeInTheDocument();
   });
 
