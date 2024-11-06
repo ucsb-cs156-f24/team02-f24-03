@@ -46,7 +46,9 @@ function RecommendationRequestForm({
             </Form.Group>
           </Col>
         )}
+        </Row>
 
+        <Row>
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="requesterEmail">Requester Email</Form.Label>
@@ -64,6 +66,8 @@ function RecommendationRequestForm({
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
+        </Row>
+        <Row>
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="professorEmail">Professor Email</Form.Label>
@@ -81,6 +85,8 @@ function RecommendationRequestForm({
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
+        </Row>
+        <Row>
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="explanation">Explanation</Form.Label>
@@ -98,6 +104,8 @@ function RecommendationRequestForm({
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
+        </Row>
+        <Row>
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="dateRequested">
@@ -118,6 +126,8 @@ function RecommendationRequestForm({
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
+        </Row>
+        <Row>
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="dateNeeded">
@@ -138,6 +148,8 @@ function RecommendationRequestForm({
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
+        </Row>
+        <Row>
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="done">Done</Form.Label>
