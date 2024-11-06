@@ -26,7 +26,7 @@ function ArticlesForm({
   // Stryker restore Regex
 
   // Stryker disable next-line all
-  const yyyyq_regex = /((19)|(20))\d{2}[1-4]/i; // Accepts from 1900-2099 followed by 1-4.  Close enough.
+  // const yyyyq_regex = /((19)|(20))\d{2}[1-4]/i; // Accepts from 1900-2099 followed by 1-4.  Close enough.
 
   return (
     <Form onSubmit={handleSubmit(submitAction)}>
@@ -36,7 +36,7 @@ function ArticlesForm({
             <Form.Group className="mb-3">
               <Form.Label htmlFor="id">Id</Form.Label>
               <Form.Control
-                data-testid="Articles-id"
+                data-testid="ArticlesForm-id"
                 id="id"
                 type="text"
                 {...register("id")}
@@ -51,7 +51,7 @@ function ArticlesForm({
           <Form.Group className="mb-3">
             <Form.Label htmlFor="title">Title</Form.Label>
             <Form.Control
-              data-testid="Articles-title"
+              data-testid="ArticlesForm-title"
               id="title"
               type="text"
               isInvalid={Boolean(errors.title)}
@@ -64,17 +64,19 @@ function ArticlesForm({
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
+      </Row>
 
+      <Row>
         <Col>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="url">Url</Form.Label>
+            <Form.Label htmlFor="url">URL Link</Form.Label>
             <Form.Control
-              data-testid="Articles-url"
+              data-testid="ArticlesForm-url"
               id="url"
               type="text"
               isInvalid={Boolean(errors.url)}
               {...register("url", {
-                required: "url is required.",
+                required: "URL is required.",
               })}
             />
             <Form.Control.Feedback type="invalid">
@@ -82,35 +84,19 @@ function ArticlesForm({
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
+      </Row>
 
-        <Col>
-          <Form.Group className="mb-3">
-            <Form.Label htmlFor="email">Email</Form.Label>
-            <Form.Control
-              data-testid="Articles-email"
-              id="email"
-              type="text"
-              isInvalid={Boolean(errors.email)}
-              {...register("email", {
-                required: "email is required.",
-              })}
-            />
-            <Form.Control.Feedback type="invalid">
-              {errors.email?.message}
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Col>
-
+      <Row>
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="explanation">Explanation</Form.Label>
             <Form.Control
-              data-testid="Articles-explanation"
+              data-testid="ArticlesForm-explanation"
               id="explanation"
               type="text"
               isInvalid={Boolean(errors.explanation)}
               {...register("explanation", {
-                required: "explanation is required.",
+                required: "Explanation is required.",
               })}
             />
             <Form.Control.Feedback type="invalid">
@@ -118,56 +104,58 @@ function ArticlesForm({
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
+      </Row>
 
+      <Row>
         <Col>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="dateadded">Date (iso format)</Form.Label>
+            <Form.Label htmlFor="email">Email</Form.Label>
             <Form.Control
-              data-testid="Articles-dateadded"
-              id="dateadded"
-              type="datetime-local"
-              isInvalid={Boolean(errors.dateadded)}
-              {...register("dateadded", {
-                required: true,
-                pattern: isodate_regex,
+              data-testid="ArticlesForm-email"
+              id="email"
+              type="text"
+              isInvalid={Boolean(errors.email)}
+              {...register("email", {
+                required: "Email is required.",
               })}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.dateadded && "Date Added is required. "}
+              {errors.email?.message}
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
       </Row>
 
-      {/* <Row>
+      <Row>
         <Col>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="name">Name</Form.Label>
+            <Form.Label htmlFor="dateAdded">Added Date (iso format)</Form.Label>
             <Form.Control
-              data-testid="Articles-name"
-              id="name"
-              type="text"
-              isInvalid={Boolean(errors.name)}
-              {...register("name", {
-                required: "Name is required.",
+              data-testid="ArticlesForm-dateAdded"
+              id="dateAdded"
+              type="datetime-local"
+              isInvalid={Boolean(errors.dateAdded)}
+              {...register("dateAdded", {
+                required: true,
+                pattern: isodate_regex,
               })}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.name?.message}
+              {errors.dateAdded && "DateAdded is required. "}
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
-      </Row> */}
+      </Row>
 
       <Row>
         <Col>
-          <Button type="submit" data-testid="Articles-submit">
+          <Button type="submit" data-testid="ArticlesForm-submit">
             {buttonLabel}
           </Button>
           <Button
             variant="Secondary"
             onClick={() => navigate(-1)}
-            data-testid="Articles-cancel"
+            data-testid="ArticlesForm-cancel"
           >
             Cancel
           </Button>
@@ -177,4 +165,4 @@ function ArticlesForm({
   );
 }
 
-export default Articles;
+export default ArticlesForm;
