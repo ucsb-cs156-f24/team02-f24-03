@@ -10,6 +10,7 @@ const recommendationRequestFixtures = {
   },
   threeRequests: [
     {
+      id: 1,
       requesterEmail: "requester1@gmail.com",
       professorEmail: "professor1@gmail.com",
       explanation: "something1",
@@ -18,6 +19,7 @@ const recommendationRequestFixtures = {
       done: false,
     },
     {
+      id: 2,
       requesterEmail: "requester2@gmail.com",
       professorEmail: "professor2@gmail.com",
       explanation: "something2",
@@ -26,6 +28,7 @@ const recommendationRequestFixtures = {
       done: false,
     },
     {
+      id: 3,
       requesterEmail: "requester3@gmail.com",
       professorEmail: "professor3@gmail.com",
       explanation: "something3",

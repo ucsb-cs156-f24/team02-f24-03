@@ -13,7 +13,7 @@ export default function RecommendationRequestTable({ requests, currentUser }) {
   const navigate = useNavigate();
 
   const editCallback = (cell) => {
-    navigate(`/ucsbdates/edit/${cell.row.values.id}`);
+    navigate(`/recommendationrequests/edit/${cell.row.values.id}`);
   };
 
   // Stryker disable all : hard to test for query caching
@@ -48,27 +48,44 @@ export default function RecommendationRequestTable({ requests, currentUser }) {
       accessor: "explanation",
     },
     {
-        Header: "Date Requested",
-        accessor: "dateRequested",
-      },
-      {
-        Header: "Date Needed",
-        accessor: "dateNeeded",
-      },
-      {
-        Header: "Done",
-        accessor: "Done",
-      },
+      Header: "Date Requested",
+      accessor: "dateRequested",
+    },
+    {
+      Header: "Date Needed",
+      accessor: "dateNeeded",
+    },
+    {
+      Header: "Done",
+      accessor: (RecommendationRequest) =>
+        RecommendationRequest.done.toString(),
+    },
   ];
 
   if (hasRole(currentUser, "ROLE_ADMIN")) {
     columns.push(
-      ButtonColumn("Edit", "primary", editCallback, "RecommendationRequestTable"),
+      ButtonColumn(
+        "Edit",
+        "primary",
+        editCallback,
+        "RecommendationRequestTable",
+      ),
     );
     columns.push(
-      ButtonColumn("Delete", "danger", deleteCallback, "RecommendationRequestTable"),
+      ButtonColumn(
+        "Delete",
+        "danger",
+        deleteCallback,
+        "RecommendationRequestTable",
+      ),
     );
   }
 
-  return <OurTable data={requests} columns={columns} testid={"RecommendationRequestTable"} />;
+  return (
+    <OurTable
+      data={requests}
+      columns={columns}
+      testid={"RecommendationRequestTable"}
+    />
+  );
 }
