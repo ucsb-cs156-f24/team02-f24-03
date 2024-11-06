@@ -3,7 +3,7 @@ import ArticlesForm from "main/components/Articles/ArticlesForm";
 import { articlesFixtures } from "fixtures/articlesFixtures";
 
 export default {
-  title: "components/ArticlesForm/ArticlesForm",
+  title: "components/Articles/ArticlesForm",
   component: ArticlesForm,
 };
 
