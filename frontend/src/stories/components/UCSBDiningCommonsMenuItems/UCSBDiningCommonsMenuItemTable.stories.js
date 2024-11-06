@@ -1,11 +1,11 @@
 import React from "react";
-import UCSBDiningCommonsMenuItemTable from "main/components/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemTable";
+import UCSBDiningCommonsMenuItemTable from "main/components/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemTable";
 import { ucsbDiningCommonsMenuItemFixtures } from "fixtures/ucsbDiningCommonsMenuItemFixtures";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
 import { http, HttpResponse } from "msw";
 
 export default {
-  title: "components/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemTable",
+  title: "components/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemTable",
   component: UCSBDiningCommonsMenuItemTable,
 };
 
@@ -35,7 +35,7 @@ ThreeItemsAdminUser.args = {
 
 ThreeItemsAdminUser.parameters = {
   msw: [
-    http.delete("/api/ucsbDiningCommonsMenuItem", () => {
+    http.delete("/api/ucsbDiningCommonsMenuItems", () => {
       return HttpResponse.json(
         { message: "UCSBDiningCommonsMenuItem deleted successfully" },
         { status: 200 },
