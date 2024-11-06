@@ -85,7 +85,10 @@ function UCSBDiningCommonsMenuItemForm({
         </Form.Control.Feedback>
       </Form.Group>
 
-      <Button type="submit" data-testid={"UCSBDiningCommonsMenuItemForm-submit"}>
+      <Button
+        type="submit"
+        data-testid={"UCSBDiningCommonsMenuItemForm-submit"}
+      >
         {buttonLabel}
       </Button>
       <Button

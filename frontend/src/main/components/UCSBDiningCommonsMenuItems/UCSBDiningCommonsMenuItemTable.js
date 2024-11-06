@@ -62,6 +62,10 @@ export default function UCSBDiningCommonsMenuItemTable({
   }
 
   return (
-    <OurTable data={ucsbDiningCommonsMenuItem} columns={columns} testid={testIdPrefix} />
+    <OurTable
+      data={ucsbDiningCommonsMenuItem}
+      columns={columns}
+      testid={testIdPrefix}
+    />
   );
 }
