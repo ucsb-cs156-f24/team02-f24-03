@@ -33,26 +33,27 @@ function UCSBOrganizationForm({
             disabled
           />
         </Form.Group>
-        ) : (
-            <Form.Group className="mb-3">
-              <Form.Label htmlFor="orgCode">Organization Code</Form.Label>
-              <Form.Control
-                data-testid={testIdPrefix + "-orgCode"}
-                id="orgCode"
-                type="text"
-                {...register("orgCode", {
-                  required: "Organization Code is required.",
-                })}
-              />
-              <Form.Control.Feedback type="invalid">
-                {errors.orgCode?.message}
-              </Form.Control.Feedback>
-            </Form.Group>
-          
+      ) : (
+        <Form.Group className="mb-3">
+          <Form.Label htmlFor="orgCode">Organization Code</Form.Label>
+          <Form.Control
+            data-testid={testIdPrefix + "-orgCode"}
+            id="orgCode"
+            type="text"
+            {...register("orgCode", {
+              required: "Organization Code is required.",
+            })}
+          />
+          <Form.Control.Feedback type="invalid">
+            {errors.orgCode?.message}
+          </Form.Control.Feedback>
+        </Form.Group>
       )}
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="orgTranslationShort">Organization Translation Short</Form.Label>
+        <Form.Label htmlFor="orgTranslationShort">
+          Organization Translation Short
+        </Form.Label>
         <Form.Control
           data-testid={testIdPrefix + "-orgTranslationShort"}
           id="orgTranslationShort"
@@ -72,7 +73,9 @@ function UCSBOrganizationForm({
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="orgTranslation">Organization Translation</Form.Label>
+        <Form.Label htmlFor="orgTranslation">
+          Organization Translation
+        </Form.Label>
         <Form.Control
           data-testid={testIdPrefix + "-orgTranslation"}
           id="orgTranslation"

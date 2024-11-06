@@ -1,11 +1,12 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import RestaurantForm from "main/components/UCSBOrganization/UCSBOrganizationForm";
-import { restaurantFixtures, ucsbOrganizationFixtures } from "fixtures/ucsbOrganizationFixtures";
+import UCSBOrganizationForm from "main/components/UCSBOrganization/UCSBOrganizationForm";
+import {
+  ucsbOrganizationFixtures,
+} from "fixtures/ucsbOrganizationFixtures";
 
 import { QueryClient, QueryClientProvider } from "react-query";
-import UCSBOrganizationForm from "main/components/UCSBOrganization/UCSBOrganizationForm";
 
 const mockedNavigate = jest.fn();
 
@@ -17,15 +18,25 @@ jest.mock("react-router-dom", () => ({
 describe("UCSBOrganizationForm tests", () => {
   const queryClient = new QueryClient();
 
-  const expectedHeaders = ["Organization Code", "Organization Translation Short", "Organization Translation", "Inactive"];
-  const expectedIds = ["orgCode", "orgTranslationShort", "orgTranslation", "inactive"];
+  const expectedHeaders = [
+    "Organization Code",
+    "Organization Translation Short",
+    "Organization Translation",
+    "Inactive",
+  ];
+  const expectedIds = [
+    "orgCode",
+    "orgTranslationShort",
+    "orgTranslation",
+    "inactive",
+  ];
   const testId = "UCSBOrganizationForm";
 
   test("renders correctly with no initialContents", async () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <RestaurantForm />
+          <UCSBOrganizationForm />
         </Router>
       </QueryClientProvider>,
     );
@@ -49,7 +60,10 @@ describe("UCSBOrganizationForm tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <UCSBOrganizationForm initialContents={ucsbOrganizationFixtures.oneOrganization} buttonLabel="Update" />
+          <UCSBOrganizationForm
+            initialContents={ucsbOrganizationFixtures.oneOrganization}
+            buttonLabel="Update"
+          />
         </Router>
       </QueryClientProvider>,
     );
@@ -73,7 +87,7 @@ describe("UCSBOrganizationForm tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <RestaurantForm />
+          <UCSBOrganizationForm />
         </Router>
       </QueryClientProvider>,
     );
@@ -89,7 +103,7 @@ describe("UCSBOrganizationForm tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <RestaurantForm />
+          <UCSBOrganizationForm />
         </Router>
       </QueryClientProvider>,
     );
@@ -99,10 +113,13 @@ describe("UCSBOrganizationForm tests", () => {
     fireEvent.click(submitButton);
 
     await screen.findByText(/Organization Code is required/);
-    expect(screen.getByText(/Organization Translation Short is required/)).toBeInTheDocument();
-    expect(screen.getByText(/Organization Translation is required/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Organization Translation Short is required/),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Organization Translation is required/),
+    ).toBeInTheDocument();
     expect(screen.getByText(/Inactive status is required/)).toBeInTheDocument();
-    
 
     const nameInput = screen.getByTestId(`${testId}-orgTranslationShort`);
     fireEvent.change(nameInput, { target: { value: "a".repeat(16) } });
