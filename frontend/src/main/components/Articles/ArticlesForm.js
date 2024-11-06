@@ -123,19 +123,19 @@ function ArticlesForm({
       <Row>
         <Col>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="dateAdded">Date Added(iso format)</Form.Label>
+            <Form.Label htmlFor="dateadded">Date Added(iso format)</Form.Label>
             <Form.Control
-              data-testid="ArticlesForm-dateAdded"
-              id="dateAdded"
+              data-testid="ArticlesForm-dateadded"
+              id="dateadded"
               type="datetime-local"
-              isInvalid={Boolean(errors.dateAdded)}
-              {...register("dateAdded", {
+              isInvalid={Boolean(errors.dateadded)}
+              {...register("dateadded", {
                 required: true,
                 pattern: isodate_regex,
               })}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.dateAdded && "LocalDateTime is required."}
+              {errors.dateadded && "LocalDateTime is required."}
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
