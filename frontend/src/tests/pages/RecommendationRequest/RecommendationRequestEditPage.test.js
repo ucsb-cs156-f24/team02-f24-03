@@ -49,7 +49,9 @@ describe("RecommendationRequestEditPage tests", () => {
       axiosMock
         .onGet("/api/systemInfo")
         .reply(200, systemInfoFixtures.showingNeither);
-      axiosMock.onGet("/api/recommendationrequests", { params: { id: 1 } }).timeout();
+      axiosMock
+        .onGet("/api/recommendationrequests", { params: { id: 1 } })
+        .timeout();
     });
 
     const queryClient = new QueryClient();
@@ -83,22 +85,24 @@ describe("RecommendationRequestEditPage tests", () => {
       axiosMock
         .onGet("/api/systemInfo")
         .reply(200, systemInfoFixtures.showingNeither);
-      axiosMock.onGet("/api/recommendationrequests", { params: { id: 1 } }).reply(200, {
-        id: 1,
-        requesterEmail: "requester@gmail.com",
-        professorEmail: "professor@gmail.com",
-        explanation: "explanation",
-        dateRequested: "2022-03-14T15:00",
-        dateNeeded: "2022-03-14T15:00",
-        done: false,
-      });
+      axiosMock
+        .onGet("/api/recommendationrequests", { params: { id: 1 } })
+        .reply(200, {
+          id: 1,
+          requesterEmail: "requester@gmail.com",
+          professorEmail: "professor@gmail.com",
+          dateRequested: "2022-03-14T15:00",
+          dateNeeded: "2022-03-14T15:00",
+          explanation: "explanation",
+          done: false,
+        });
       axiosMock.onPut("/api/recommendationrequests").reply(200, {
         id: "1",
         requesterEmail: "requester2@gmail.com",
         professorEmail: "professor2@gmail.com",
-        explanation: "explanation2",
         dateRequested: "2022-03-14T15:00",
         dateNeeded: "2022-03-14T15:00",
+        explanation: "explanation2",
         done: false,
       });
     });
@@ -128,15 +132,25 @@ describe("RecommendationRequestEditPage tests", () => {
       await screen.findByTestId("RecommendationRequestForm-requesterEmail");
 
       const idField = screen.getByTestId("RecommendationRequestForm-id");
-      const requesterEmailField = screen.getByTestId("RecommendationRequestForm-requesterEmail");
-      const professorEmailField = screen.getByTestId("RecommendationRequestForm-professorEmail");
-      const dateRequestedField = screen.getByTestId("RecommendationRequestForm-dateRequested");
-      const dateNeededField = screen.getByTestId("RecommendationRequestForm-dateNeeded");
+      const requesterEmailField = screen.getByTestId(
+        "RecommendationRequestForm-requesterEmail",
+      );
+      const professorEmailField = screen.getByTestId(
+        "RecommendationRequestForm-professorEmail",
+      );
+      const dateRequestedField = screen.getByTestId(
+        "RecommendationRequestForm-dateRequested",
+      );
+      const dateNeededField = screen.getByTestId(
+        "RecommendationRequestForm-dateNeeded",
+      );
       const explanationField = screen.getByTestId(
         "RecommendationRequestForm-explanation",
       );
-      const doneField = screen.getByTestId("RecommendationRequestForm-done")
-      const submitButton = screen.getByTestId("RecommendationRequestForm-submit");
+      const doneField = screen.getByTestId("RecommendationRequestForm-done");
+      const submitButton = screen.getByTestId(
+        "RecommendationRequestForm-submit",
+      );
 
       expect(idField).toHaveValue("1");
       expect(requesterEmailField).toHaveValue("requester@gmail.com");
@@ -144,7 +158,7 @@ describe("RecommendationRequestEditPage tests", () => {
       expect(dateRequestedField).toHaveValue("2022-03-14T15:00");
       expect(dateNeededField).toHaveValue("2022-03-14T15:00");
       expect(explanationField).toHaveValue("explanation");
-      expect(doneField).toHaveValue("false")
+      expect(doneField).toHaveValue("false");
       expect(submitButton).toBeInTheDocument();
     });
 
@@ -160,15 +174,25 @@ describe("RecommendationRequestEditPage tests", () => {
       await screen.findByTestId("RecommendationRequestForm-requesterEmail");
 
       const idField = screen.getByTestId("RecommendationRequestForm-id");
-      const requesterEmailField = screen.getByTestId("RecommendationRequestForm-requesterEmail");
-      const professorEmailField = screen.getByTestId("RecommendationRequestForm-professorEmail");
-      const dateRequestedField = screen.getByTestId("RecommendationRequestForm-dateRequested");
-      const dateNeededField = screen.getByTestId("RecommendationRequestForm-dateNeeded");
+      const requesterEmailField = screen.getByTestId(
+        "RecommendationRequestForm-requesterEmail",
+      );
+      const professorEmailField = screen.getByTestId(
+        "RecommendationRequestForm-professorEmail",
+      );
+      const dateRequestedField = screen.getByTestId(
+        "RecommendationRequestForm-dateRequested",
+      );
+      const dateNeededField = screen.getByTestId(
+        "RecommendationRequestForm-dateNeeded",
+      );
       const explanationField = screen.getByTestId(
         "RecommendationRequestForm-explanation",
       );
-      const doneField = screen.getByTestId("RecommendationRequestForm-done")
-      const submitButton = screen.getByTestId("RecommendationRequestForm-submit");
+      const doneField = screen.getByTestId("RecommendationRequestForm-done");
+      const submitButton = screen.getByTestId(
+        "RecommendationRequestForm-submit",
+      );
 
       expect(idField).toHaveValue("1");
       expect(requesterEmailField).toHaveValue("requester@gmail.com");
@@ -176,18 +200,24 @@ describe("RecommendationRequestEditPage tests", () => {
       expect(dateRequestedField).toHaveValue("2022-03-14T15:00");
       expect(dateNeededField).toHaveValue("2022-03-14T15:00");
       expect(explanationField).toHaveValue("explanation");
-      expect(doneField).toHaveValue("false")
+      expect(doneField).toHaveValue("false");
 
       expect(submitButton).toBeInTheDocument();
 
-      fireEvent.change(requesterEmailField, { target: { value: "requester2@gmail.com" } });
+      fireEvent.change(requesterEmailField, {
+        target: { value: "requester2@gmail.com" },
+      });
       fireEvent.change(professorEmailField, {
         target: { value: "professor2@gmail.com" },
       });
-      fireEvent.change(dateRequestedField, { target: { value: "2022-03-14T15:00" } });
-      fireEvent.change(dateNeededField, { target: { value: "2022-03-14T15:00" } });
+      fireEvent.change(dateRequestedField, {
+        target: { value: "2022-03-14T15:00" },
+      });
+      fireEvent.change(dateNeededField, {
+        target: { value: "2022-03-14T15:00" },
+      });
       fireEvent.change(explanationField, { target: { value: "explanation2" } });
-      fireEvent.change(doneField, { target: { value: true } });
+      fireEvent.change(doneField, { target: { value: false } });
 
       fireEvent.click(submitButton);
 
@@ -206,7 +236,7 @@ describe("RecommendationRequestEditPage tests", () => {
           dateRequested: "2022-03-14T15:00",
           dateNeeded: "2022-03-14T15:00",
           explanation: "explanation2",
-          doneField: false,
+          done: "false",
         }),
       ); // posted object
     });

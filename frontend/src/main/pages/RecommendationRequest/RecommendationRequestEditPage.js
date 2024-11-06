@@ -34,15 +34,17 @@ export default function RecommendationRequestEditPage({ storybook = false }) {
     data: {
       requesterEmail: recommendationRequest.requesterEmail,
       professorEmail: recommendationRequest.professorEmail,
-      explanation: recommendationRequest.explanation,
       dateRequested: recommendationRequest.dateRequested,
-      dateNeeded: recommendationRequest.dateNeeded, 
+      dateNeeded: recommendationRequest.dateNeeded,
+      explanation: recommendationRequest.explanation,
       done: recommendationRequest.done,
     },
   });
 
   const onSuccess = (recommendationRequest) => {
-    toast(`Recommendation Request Updated - id: ${recommendationRequest.id} name: ${recommendationRequest.name}`);
+    toast(
+      `RecommendationRequest Updated - id: ${recommendationRequest.id} requesterEmail: ${recommendationRequest.requesterEmail}`,
+    );
   };
 
   const mutation = useBackendMutation(
