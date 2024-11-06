@@ -116,5 +116,17 @@ describe("ArticlesCreatePage tests", () => {
       email: "email1@gmail.com",
       dateadded: "2024-01-02T00:00",
     });
+
+    // Verify that toast was called with correct message
+    await waitFor(() =>
+      expect(mockToast).toHaveBeenCalledWith(
+        "New article Created - id: 11 title: Article1",
+      ),
+    );
+
+    // Verify that navigation was called with correct path
+    await waitFor(() =>
+      expect(mockNavigate).toHaveBeenCalledWith({ to: "/articles" }),
+    );
   });
 });
