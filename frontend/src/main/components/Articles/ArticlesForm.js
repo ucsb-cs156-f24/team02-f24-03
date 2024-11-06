@@ -25,9 +25,6 @@ function ArticlesForm({
     /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
   // Stryker restore Regex
 
-  // Stryker disable next-line all
-  // const yyyyq_regex = /((19)|(20))\d{2}[1-4]/i; // Accepts from 1900-2099 followed by 1-4.  Close enough.
-
   return (
     <Form onSubmit={handleSubmit(submitAction)}>
       <Row>
@@ -56,11 +53,11 @@ function ArticlesForm({
               type="text"
               isInvalid={Boolean(errors.title)}
               {...register("title", {
-                required: "Title is required.",
+                required: true,
               })}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.title?.message}
+              {errors.title && "Title is required."}
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
@@ -69,7 +66,7 @@ function ArticlesForm({
       <Row>
         <Col>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="url">URL Link</Form.Label>
+            <Form.Label htmlFor="url">URL</Form.Label>
             <Form.Control
               data-testid="ArticlesForm-url"
               id="url"
@@ -85,7 +82,6 @@ function ArticlesForm({
           </Form.Group>
         </Col>
       </Row>
-
       <Row>
         <Col>
           <Form.Group className="mb-3">
@@ -105,7 +101,6 @@ function ArticlesForm({
           </Form.Group>
         </Col>
       </Row>
-
       <Row>
         <Col>
           <Form.Group className="mb-3">
@@ -125,11 +120,10 @@ function ArticlesForm({
           </Form.Group>
         </Col>
       </Row>
-
       <Row>
         <Col>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="dateAdded">Added Date (iso format)</Form.Label>
+            <Form.Label htmlFor="dateAdded">Date Added(iso format)</Form.Label>
             <Form.Control
               data-testid="ArticlesForm-dateAdded"
               id="dateAdded"
@@ -141,7 +135,7 @@ function ArticlesForm({
               })}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.dateAdded && "DateAdded is required. "}
+              {errors.dateAdded && "LocalDateTime is required."}
             </Form.Control.Feedback>
           </Form.Group>
         </Col>

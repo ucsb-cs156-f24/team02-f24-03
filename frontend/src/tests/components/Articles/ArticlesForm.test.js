@@ -21,7 +21,7 @@ describe("ArticlesForm tests", () => {
     await screen.findByText(/Create/);
   });
 
-  test("renders correctly when passing in a Articles", async () => {
+  test("renders correctly when passing in a Article", async () => {
     render(
       <Router>
         <ArticlesForm initialContents={articlesFixtures.oneArticle} />
@@ -39,21 +39,13 @@ describe("ArticlesForm tests", () => {
       </Router>,
     );
     await screen.findByTestId("ArticlesForm-title");
-    const titleField = screen.getByTestId("ArticlesForm-title");
-    const urlField = screen.getByTestId("ArticlesForm-url");
-    const explanationField = screen.getByTestId("ArticlesForm-explanation");
-    const emailField = screen.getByTestId("ArticlesForm-email");
     const dateAddedField = screen.getByTestId("ArticlesForm-dateAdded");
     const submitButton = screen.getByTestId("ArticlesForm-submit");
 
-    fireEvent.change(titleField, { target: { value: "bad-input" } });
-    fireEvent.change(urlField, { target: { value: "bad-input" } });
-    fireEvent.change(explanationField, { target: { value: "bad-input" } });
-    fireEvent.change(emailField, { target: { value: "bad-input" } });
     fireEvent.change(dateAddedField, { target: { value: "bad-input" } });
     fireEvent.click(submitButton);
 
-    await screen.findByText(/DateAdded is required./);
+    await screen.findByText(/LocalDateTime is required./);
   });
 
   test("Correct Error messsages on missing input", async () => {
@@ -71,7 +63,7 @@ describe("ArticlesForm tests", () => {
     expect(screen.getByText(/URL is required./)).toBeInTheDocument();
     expect(screen.getByText(/Explanation is required./)).toBeInTheDocument();
     expect(screen.getByText(/Email is required./)).toBeInTheDocument();
-    expect(screen.getByText(/DateAdded is required./)).toBeInTheDocument();
+    expect(screen.getByText(/LocalDateTime is required./)).toBeInTheDocument();
   });
 
   test("No Error messsages on good input", async () => {
@@ -91,25 +83,27 @@ describe("ArticlesForm tests", () => {
     const dateAddedField = screen.getByTestId("ArticlesForm-dateAdded");
     const submitButton = screen.getByTestId("ArticlesForm-submit");
 
-    fireEvent.change(titleField, { target: { value: "FirstArticles" } });
-    fireEvent.change(urlField, {
-      target: { value: "https://www.google.com/" },
-    });
-    fireEvent.change(explanationField, {
-      target: { value: "This is my first article" },
-    });
-    fireEvent.change(emailField, { target: { value: "yungong@ucsb.edu" } });
-    fireEvent.change(dateAddedField, {
-      target: { value: "2022-01-02T12:00" },
-    });
+    fireEvent.change(titleField, { target: { value: "title" } });
+    fireEvent.change(urlField, { target: { value: "url" } });
+    fireEvent.change(explanationField, { target: { value: "explanation" } });
+    fireEvent.change(emailField, { target: { value: "email" } });
+    fireEvent.change(dateAddedField, { target: { value: "2022-01-02T12:00" } });
     fireEvent.click(submitButton);
 
     await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
 
+    expect(screen.queryByText(/Title is required./)).not.toBeInTheDocument();
+    expect(screen.queryByText(/URL is required./)).not.toBeInTheDocument();
     expect(
-      screen.queryByText(
-        /DateAdded must be in the format YYYY-MM-DDTTHH:MM:SS/,
-      ),
+      screen.queryByText(/Explanation is required./),
+    ).not.toBeInTheDocument();
+    expect(screen.queryByText(/Email is required./)).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(/LocalDateTime is required./),
+    ).not.toBeInTheDocument();
+
+    expect(
+      screen.queryByText(/localDateTime must be in ISO format/),
     ).not.toBeInTheDocument();
   });
 

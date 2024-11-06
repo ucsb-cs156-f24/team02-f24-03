@@ -5,7 +5,7 @@ const articlesFixtures = {
     url: "article1.com",
     explanation: "article1-explanation",
     email: "article1-email",
-    dateadded: "2022-01-02T12:00:00",
+    dateAdded: "2022-01-02T12:00:00",
   },
   threeArticles: [
     {
@@ -14,7 +14,7 @@ const articlesFixtures = {
       url: "article1.com",
       explanation: "article1-explanation",
       email: "article1-email",
-      dateadded: "2022-01-02T12:00:00",
+      dateAdded: "2022-01-02T12:00:00",
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ const articlesFixtures = {
       url: "article2.com",
       explanation: "article2-explanation",
       email: "article2-email",
-      dateadded: "2022-02-02T12:00:00",
+      dateAdded: "2022-02-02T12:00:00",
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ const articlesFixtures = {
       url: "article3.com",
       explanation: "article3-explanation",
       email: "article3-email",
-      dateadded: "2022-03-02T12:00:00",
+      dateAdded: "2022-03-02T12:00:00",
     },
   ],
 };
