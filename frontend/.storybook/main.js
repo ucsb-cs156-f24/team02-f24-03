@@ -18,6 +18,6 @@ const config = {
 
   staticDirs: ["../public"],
 
-  docs: {}
+  docs: {},
 };
 export default config;
