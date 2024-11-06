@@ -56,6 +56,9 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
 
     expect(await screen.findByTestId(`${testId}-id`)).toBeInTheDocument();
     expect(screen.getByText(`Id`)).toBeInTheDocument();
+
+    const submitButton = await screen.getByTestId(`${testId}-submit`);
+    expect(submitButton).toBeInTheDocument();
   });
 
   test("that navigate(-1) is called when Cancel is clicked", async () => {
