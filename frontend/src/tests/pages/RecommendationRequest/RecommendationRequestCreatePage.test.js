@@ -75,7 +75,7 @@ describe("RecommendationRequestCreatePage tests", () => {
     };
 
     axiosMock
-      .onPost("/api/recommendationrequest/post")
+      .onPost("/api/recommendationrequests/post")
       .reply(202, recommendationRequest);
 
     render(
