@@ -77,7 +77,6 @@ describe("ArticlesForm tests", () => {
   //     );
   //     await screen.findByTestId("ArticlesForm-title");
 
-
   //     const titleField = screen.getByTestId("ArticlesForm-title");
   //     const urlField = screen.getByTestId("ArticlesForm-url");
   //     const explanationField = screen.getByTestId("ArticlesForm-explanation");
@@ -137,4 +136,3 @@ describe("ArticlesForm tests", () => {
     await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith(-1));
   });
 });
-
