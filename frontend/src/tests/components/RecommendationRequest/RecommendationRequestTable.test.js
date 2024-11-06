@@ -206,6 +206,12 @@ describe("UserTable tests", () => {
       ).toHaveTextContent("1");
     });
 
+    await waitFor(() => {
+        expect(
+          screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-Done`),
+        ).toHaveTextContent("false");
+      });
+
     const deleteButton = screen.getByTestId(
       `RecommendationRequestTable-cell-row-0-col-Delete-button`,
     );
