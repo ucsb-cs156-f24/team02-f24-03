@@ -17,15 +17,13 @@ function UCSBDiningCommonsMenuItemForm({
 
   const navigate = useNavigate();
 
-  const testIdPrefix = "UCSBDiningCommonsMenuItemForm";
-
   return (
     <Form onSubmit={handleSubmit(submitAction)}>
       {initialContents && (
         <Form.Group className="mb-3">
           <Form.Label htmlFor="id">Id</Form.Label>
           <Form.Control
-            data-testid={testIdPrefix + "-id"}
+            data-testid={"UCSBDiningCommonsMenuItemForm-id"}
             id="id"
             type="text"
             {...register("id")}
@@ -38,7 +36,7 @@ function UCSBDiningCommonsMenuItemForm({
       <Form.Group className="mb-3">
         <Form.Label htmlFor="diningCommonsCode">Dining Commons Code</Form.Label>
         <Form.Control
-          data-testid={testIdPrefix + "-diningCommonsCode"}
+          data-testid={"UCSBDiningCommonsMenuItemForm-diningCommonsCode"}
           id="diningCommonsCode"
           type="text"
           isInvalid={Boolean(errors.diningCommonsCode)}
@@ -54,12 +52,16 @@ function UCSBDiningCommonsMenuItemForm({
       <Form.Group className="mb-3">
         <Form.Label htmlFor="name">Name</Form.Label>
         <Form.Control
-          data-testid={testIdPrefix + "-name"}
+          data-testid={"UCSBDiningCommonsMenuItemForm-name"}
           id="name"
           type="text"
           isInvalid={Boolean(errors.name)}
           {...register("name", {
             required: "Name is required.",
+            maxLength: {
+              value: 30,
+              message: "Max length 30 characters",
+            },
           })}
         />
         <Form.Control.Feedback type="invalid">
@@ -70,7 +72,7 @@ function UCSBDiningCommonsMenuItemForm({
       <Form.Group className="mb-3">
         <Form.Label htmlFor="station">Station</Form.Label>
         <Form.Control
-          data-testid={testIdPrefix + "-station"}
+          data-testid={"UCSBDiningCommonsMenuItemForm-station"}
           id="station"
           type="text"
           isInvalid={Boolean(errors.station)}
@@ -83,13 +85,13 @@ function UCSBDiningCommonsMenuItemForm({
         </Form.Control.Feedback>
       </Form.Group>
 
-      <Button type="submit" data-testid={testIdPrefix + "-submit"}>
+      <Button type="submit" data-testid={"UCSBDiningCommonsMenuItemForm-submit"}>
         {buttonLabel}
       </Button>
       <Button
         variant="Secondary"
         onClick={() => navigate(-1)}
-        data-testid={testIdPrefix + "-cancel"}
+        data-testid={"UCSBDiningCommonsMenuItemForm-cancel"}
       >
         Cancel
       </Button>
