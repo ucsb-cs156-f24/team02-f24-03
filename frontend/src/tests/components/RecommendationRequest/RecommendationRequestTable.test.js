@@ -207,10 +207,10 @@ describe("UserTable tests", () => {
     });
 
     await waitFor(() => {
-        expect(
-          screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-Done`),
-        ).toHaveTextContent("false");
-      });
+      expect(
+        screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-Done`),
+      ).toHaveTextContent("false");
+    });
 
     const deleteButton = screen.getByTestId(
       `RecommendationRequestTable-cell-row-0-col-Delete-button`,
