@@ -69,7 +69,6 @@ describe("ArticlesForm tests", () => {
   //   test("No Error messsages on good input", async () => {
   //     const mockSubmitAction = jest.fn();
 
-  //     await screen.findByTestId("ArticlesForm-title");
   //     render(
   //       <Router>
   //         <ArticlesForm submitAction={mockSubmitAction} />
@@ -88,11 +87,10 @@ describe("ArticlesForm tests", () => {
   //     fireEvent.change(urlField, { target: { value: "url" } });
   //     fireEvent.change(explanationField, { target: { value: "explanation" } });
   //     fireEvent.change(emailField, { target: { value: "email" } });
-  //     fireEvent.change(dateAddedField, { target: { value: "2022-01-02T12:00:00" } });
+  //     fireEvent.change(dateAddedField, { target: { value: "2022-01-02T12:00" } });
   //     fireEvent.click(submitButton);
 
   //     await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
-  //     await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
 
   //     expect(screen.queryByText(/Title is required./)).not.toBeInTheDocument();
   //     expect(screen.queryByText(/URL is required./)).not.toBeInTheDocument();
@@ -103,20 +101,7 @@ describe("ArticlesForm tests", () => {
   //     expect(
   //       screen.queryByText(/LocalDateTime is required./),
   //     ).not.toBeInTheDocument();
-  //     expect(screen.queryByText(/Title is required./)).not.toBeInTheDocument();
-  //     expect(screen.queryByText(/URL is required./)).not.toBeInTheDocument();
-  //     expect(
-  //       screen.queryByText(/Explanation is required./),
-  //     ).not.toBeInTheDocument();
-  //     expect(screen.queryByText(/Email is required./)).not.toBeInTheDocument();
-  //     expect(
-  //       screen.queryByText(/LocalDateTime is required./),
-  //     ).not.toBeInTheDocument();
 
-  //     expect(
-  //       screen.queryByText(/localDateTime must be in ISO format/),
-  //     ).not.toBeInTheDocument();
-  //   });
   //     expect(
   //       screen.queryByText(/localDateTime must be in ISO format/),
   //     ).not.toBeInTheDocument();
