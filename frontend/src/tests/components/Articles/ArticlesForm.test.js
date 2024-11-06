@@ -39,7 +39,7 @@ describe("ArticlesForm tests", () => {
       </Router>,
     );
     await screen.findByTestId("ArticlesForm-title");
-    const dateAddedField = screen.getByTestId("ArticlesForm-dateAdded");
+    const dateAddedField = screen.getByTestId("ArticlesForm-dateadded");
     const submitButton = screen.getByTestId("ArticlesForm-submit");
 
     fireEvent.change(dateAddedField, { target: { value: "bad-input" } });
