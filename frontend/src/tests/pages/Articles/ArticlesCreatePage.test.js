@@ -48,13 +48,13 @@ describe("ArticlesCreatePage tests", () => {
   test("renders without crashing", async () => {
     const queryClient = new QueryClient();
     render(
-        <QueryClientProvider client={queryClient}>
-          <MemoryRouter>
-            <ArticlesCreatePage storybook={true} />
-          </MemoryRouter>
-        </QueryClientProvider>
-      );
-      
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <ArticlesCreatePage storybook={true} />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    );
+
     // Check that it does not navigate when storybook is true
     await waitFor(() => expect(mockNavigate).not.toHaveBeenCalled());
 
@@ -121,11 +121,12 @@ describe("ArticlesCreatePage tests", () => {
     });
 
     await waitFor(() => {
-        expect(mockToast).toHaveBeenCalledWith("New article Created - id: 11 title: Article1");
-      });
-      
+      expect(mockToast).toHaveBeenCalledWith(
+        "New article Created - id: 11 title: Article1",
+      );
+    });
+
     await waitFor(() => expect(mockToast).not.toHaveBeenCalledWith(""));
-      
 
     // Verify that navigation was called with correct path
     await waitFor(() =>
