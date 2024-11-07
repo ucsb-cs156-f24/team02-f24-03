@@ -71,7 +71,9 @@ describe("UCSBDiningCommonsMenuItemCreatePage tests", () => {
       station: "entrees",
     };
 
-    axiosMock.onPost("/api/ucsbdiningcommonsmenuitem/post").reply(202, menuitem);
+    axiosMock
+      .onPost("/api/ucsbdiningcommonsmenuitem/post")
+      .reply(202, menuitem);
 
     render(
       <QueryClientProvider client={queryClient}>
@@ -102,7 +104,7 @@ describe("UCSBDiningCommonsMenuItemCreatePage tests", () => {
       target: { value: "ortega" },
     });
     fireEvent.change(stationInput, {
-        target: { value: "entrees" },
+      target: { value: "entrees" },
     });
 
     fireEvent.click(createButton);
