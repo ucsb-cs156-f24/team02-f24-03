@@ -16,13 +16,13 @@ const Template = (args) => {
 export const Empty = Template.bind({});
 
 Empty.args = {
-  reviews : [],
+  reviews: [],
 };
 
 export const ThreeItemsOrdinaryUser = Template.bind({});
 
 ThreeItemsOrdinaryUser.args = {
-  reviews : menuItemReviewFixtures.threeReviews,
+  reviews: menuItemReviewFixtures.threeReviews,
   currentUser: currentUserFixtures.userOnly,
 };
 
