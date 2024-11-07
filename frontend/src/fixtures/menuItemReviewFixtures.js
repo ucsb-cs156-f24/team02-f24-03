@@ -1,5 +1,5 @@
 const menuItemReviewFixtures = {
-  oneRestaurant: [
+  oneReview: [
     {
       id: 1,
       itemid: 1,
@@ -9,7 +9,7 @@ const menuItemReviewFixtures = {
     },
   ],
 
-  threeRestaurants: [
+  threeReviews: [
     {
       id: 1,
       itemid: 1,
