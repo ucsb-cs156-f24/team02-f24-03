@@ -1,5 +1,7 @@
-{ "databaseChangeLog": [
+{
+  "databaseChangeLog": [
     {
-        "includeAll": {"path": "db/migration/changes/"}
+      "includeAll": { "path": "db/migration/changes/" }
     }
-]}
+  ]
+}
