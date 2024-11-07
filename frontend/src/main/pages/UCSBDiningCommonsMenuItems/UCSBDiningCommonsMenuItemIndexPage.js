@@ -35,9 +35,6 @@ export default function UCSBDiningCommonsMenuItemIndexPage() {
     }
   };
 
-  console.log(menuitems);
-  console.log(currentUser);
-
   return (
     <BasicLayout>
       <div className="pt-2">
