@@ -90,6 +90,23 @@ describe("MenuItemReview tests", () => {
       </QueryClientProvider>,
     );
 
+    const expectedHeaders = [
+      "id",
+      "ItemId",
+      "ReviewerEmail",
+      "Stars",
+      "DateReviewed",
+      "Comments",
+    ];
+    const expectedFields = [
+      "id",
+      "itemid",
+      "revieweremail",
+      "stars",
+      "datereviewed",
+      "comments",
+    ];
+    const testId = "MenuItemReviewTable";
     // assert
     expectedHeaders.forEach((headerText) => {
       const header = screen.getByText(headerText);
