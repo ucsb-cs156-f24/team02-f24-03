@@ -14,7 +14,7 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => mockedNavigate,
 }));
 
-describe("UserTable tests", () => {
+describe("MenuItemReview tests", () => {
   const queryClient = new QueryClient();
 
   test("Has the expected column headers and content for ordinary user", () => {
@@ -42,7 +42,7 @@ describe("UserTable tests", () => {
     const expectedFields = [
       "id",
       "itemid",
-      "reviewerwmail",
+      "revieweremail",
       "stars",
       "datereviewed",
       "comments",
@@ -167,7 +167,7 @@ describe("UserTable tests", () => {
     fireEvent.click(editButton);
 
     await waitFor(() =>
-      expect(mockedNavigate).toHaveBeenCalledWith("/menuitemreviews/edit/1"),
+      expect(mockedNavigate).toHaveBeenCalledWith("/menuitemreview/edit/1"),
     );
   });
 
@@ -177,7 +177,7 @@ describe("UserTable tests", () => {
 
     const axiosMock = new AxiosMockAdapter(axios);
     axiosMock
-      .onDelete("/api/menuitemreviews")
+      .onDelete("/api/menuitemreview")
       .reply(200, { message: "Review deleted" });
 
     // act - render the component

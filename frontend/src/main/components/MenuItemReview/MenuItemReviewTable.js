@@ -5,14 +5,14 @@ import { useBackendMutation } from "main/utils/useBackend";
 import {
   cellToAxiosParamsDelete,
   onDeleteSuccess,
-} from "main/utils/restaurantUtils";
+} from "main/utils/MenuItemReviewUtils";
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
 export default function MenuItemReviewTable({
   reviews,
   currentUser,
-  testIdPrefix = "RestaurantTable",
+  testIdPrefix = "MenuItemReviewTable",
 }) {
   const navigate = useNavigate();
 
