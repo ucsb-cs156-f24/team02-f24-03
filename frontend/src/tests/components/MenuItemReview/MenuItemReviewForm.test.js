@@ -69,7 +69,7 @@ describe("MenuItemReviewForm tests", () => {
 
     fireEvent.click(submitButton);
 
-    await screen.findByText('ItemID is required.');
+    await screen.findByText("ItemID is required.");
     expect(screen.getByText(/Reviewer Email is required/)).toBeInTheDocument();
     expect(screen.getByText(/Stars is required/)).toBeInTheDocument();
     expect(screen.getByText(/Date Reviewed is required/)).toBeInTheDocument();
