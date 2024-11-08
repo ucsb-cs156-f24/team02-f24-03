@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for utils/ArticlesUtils.js</title>
+    <title>Code coverage report for utils/RecommendationRequestUtils.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">utils</a> ArticlesUtils.js</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">utils</a> RecommendationRequestUtils.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -82,12 +82,12 @@
 <a name='L17'></a><a href='#L17'>17</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -104,7 +104,7 @@ export function onDeleteSuccess(message) {
 &nbsp;
 export function cellToAxiosParamsDelete(cell) {
   return {
-    url: "/api/articles",
+    url: "/api/recommendationrequests",
     method: "DELETE",
     params: {
       id: cell.row.values.id,
