@@ -44,7 +44,7 @@ jobs:
     env:
       destination: target/site/apidocs
     steps:
-      - name: Checkout local code to establish repo
+    - name: Checkout local code to establish repo
       uses: actions/checkout@v4
     - name: Set up Java (version from .java-version file)
       uses: actions/setup-java@v4
