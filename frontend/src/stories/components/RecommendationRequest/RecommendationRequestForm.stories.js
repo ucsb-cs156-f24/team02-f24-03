@@ -1,14 +1,14 @@
 import React from "react";
-import ArticlesForm from "main/components/Articles/ArticlesForm";
-import { articlesFixtures } from "fixtures/articlesFixtures";
+import RecommendationRequestForm from "main/components/RecommendationRequest/RecommendationRequestForm";
+import { recommendationRequestFixtures } from "fixtures/recommendationRequestFixtures";
 
 export default {
-  title: "components/Articles/ArticlesForm",
-  component: ArticlesForm,
+  title: "components/RecommendationRequest/RecommendationRequestForm",
+  component: RecommendationRequestForm,
 };
 
 const Template = (args) => {
-  return <ArticlesForm {...args} />;
+  return <RecommendationRequestForm {...args} />;
 };
 
 export const Create = Template.bind({});
@@ -24,7 +24,7 @@ Create.args = {
 export const Update = Template.bind({});
 
 Update.args = {
-  initialContents: articlesFixtures.oneArticle,
+  initialContents: recommendationRequestFixtures.oneRequest,
   buttonLabel: "Update",
   submitAction: (data) => {
     console.log("Submit was clicked with data: ", data);
