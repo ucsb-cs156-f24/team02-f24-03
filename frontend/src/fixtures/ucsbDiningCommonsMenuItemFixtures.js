@@ -10,21 +10,21 @@ const ucsbDiningCommonsMenuItemFixtures = {
 
   threeMenuItems: [
     {
-      id: 2,
+      id: 1,
       diningCommonsCode: "dlg",
       name: "ice cream",
       station: "desserts",
     },
 
     {
-      id: 3,
+      id: 2,
       diningCommonsCode: "carrillo",
       name: "fries",
       station: "sides",
     },
 
     {
-      id: 4,
+      id: 3,
       diningCommonsCode: "portola",
       name: "sandwich",
       station: "entrees",
