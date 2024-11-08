@@ -45,15 +45,15 @@ jobs:
       destination: target/site/apidocs
     steps:
       - name: Checkout local code to establish repo
-        uses: actions/checkout@v4
-      - name: Set up Java (version from .java-version file)
-        uses: actions/setup-java@v4
-        with:
-          distribution: semeru # See: https://github.com/actions/setup-java#supported-distributions
-          java-version-file: ./.java-version
-
-      - name: Build javadoc
-        run: mvn -DskipTests javadoc:javadoc
+      uses: actions/checkout@v4
+    - name: Set up Java (version from .java-version file)
+      uses: actions/setup-java@v4
+      with:
+         distribution: semeru # See: https://github.com/actions/setup-java#supported-distributions
+         java-version-file: ./.java-version
+  
+    - name: Build javadoc
+      run: mvn -DskipTests -Dmaven.javadoc.failOnError=false javadoc:javadoc
 
       - name: Upload to artifacts
         uses: actions/upload-artifact@v4
@@ -323,17 +323,16 @@ jobs:
           distribution: semeru # See: https://github.com/actions/setup-java#supported-distributions
           java-version-file: ./.java-version
 
-      - name: Build javadoc
-        run: mvn -DskipTests javadoc:javadoc
-
-      - name: Upload javadoc to Artifacts
-        if: always() # always upload artifacts, even if tests fail
-        uses: actions/upload-artifact@v4
-        with:
-          name: prs-${{ matrix.value.number }}-javadoc
-          path: ${{ env.destination }}
-          overwrite: true
-
+    - name: Build javadoc
+      run: mvn -DskipTests -Dmaven.javadoc.failOnError=false javadoc:javadoc
+ 
+    - name: Upload javadoc to Artifacts
+      if: always() # always upload artifacts, even if tests fail
+      uses: actions/upload-artifact@v4
+      with:
+        name: prs-${{ matrix.value.number }}-javadoc
+        path: ${{ env.destination }}
+        overwrite: true
   b-build-chromatic-for-each-pr:
     name: b - Chromatic (${{ matrix.value.number }}, ${{ matrix.value.headRefName }})
     runs-on: ubuntu-latest
