@@ -51,7 +51,6 @@ jobs:
       with:
          distribution: semeru # See: https://github.com/actions/setup-java#supported-distributions
          java-version-file: ./.java-version
-  
     - name: Build javadoc
       run: mvn -DskipTests -Dmaven.javadoc.failOnError=false javadoc:javadoc
 
