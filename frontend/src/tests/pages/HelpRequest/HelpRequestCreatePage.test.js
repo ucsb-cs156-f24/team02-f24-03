@@ -18,6 +18,7 @@ jest.mock("react-toastify", () => {
   };
 });
 
+
 const mockNavigate = jest.fn();
 jest.mock("react-router-dom", () => {
   const originalModule = jest.requireActual("react-router-dom");
