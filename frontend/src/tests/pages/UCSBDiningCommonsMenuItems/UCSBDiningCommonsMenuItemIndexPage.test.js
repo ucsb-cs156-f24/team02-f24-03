@@ -62,7 +62,9 @@ describe("UCSBDiningCommonsMenuItemIndexPage tests", () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByText(/Create UCSB Dining Commons Menu Item/)).toBeInTheDocument();
+      expect(
+        screen.getByText(/Create UCSB Dining Commons Menu Item/),
+      ).toBeInTheDocument();
     });
     const button = screen.getByText(/Create UCSB Dining Commons Menu Item/);
     expect(button).toHaveAttribute("href", "/ucsbdiningcommonsmenuitem/create");
@@ -95,26 +97,30 @@ describe("UCSBDiningCommonsMenuItemIndexPage tests", () => {
       "3",
     );
 
-    const createUCSBDiningCommonsMenuItemButton = screen.queryByText("Create UCSB Dining Commons Menu Item");
+    const createUCSBDiningCommonsMenuItemButton = screen.queryByText(
+      "Create UCSB Dining Commons Menu Item",
+    );
     expect(createUCSBDiningCommonsMenuItemButton).not.toBeInTheDocument();
 
-    const diningCommonsCode = screen.getByText("ortega");
+    const diningCommonsCode = screen.getByText("dlg");
     expect(diningCommonsCode).toBeInTheDocument();
 
-    const name = screen.getByText("salad");
+    const name = screen.getByText("ice cream");
     expect(name).toBeInTheDocument();
 
-    const station = screen.getByText(
-      "entrees",
-    );
+    const station = screen.getByText("desserts");
     expect(station).toBeInTheDocument();
 
     // for non-admin users, details button is visible, but the edit and delete buttons should not be visible
     expect(
-      screen.queryByTestId("UCSBDiningCommonsMenuItemTable-cell-row-0-col-Delete-button"),
+      screen.queryByTestId(
+        "UCSBDiningCommonsMenuItemTable-cell-row-0-col-Delete-button",
+      ),
     ).not.toBeInTheDocument();
     expect(
-      screen.queryByTestId("UCSBDiningCommonsMenuItemTable-cell-row-0-col-Edit-button"),
+      screen.queryByTestId(
+        "UCSBDiningCommonsMenuItemTable-cell-row-0-col-Edit-button",
+      ),
     ).not.toBeInTheDocument();
   });
 
@@ -180,14 +186,20 @@ describe("UCSBDiningCommonsMenuItemIndexPage tests", () => {
     fireEvent.click(deleteButton);
 
     await waitFor(() => {
-      expect(mockToast).toBeCalledWith("UCSB Dining Commons Menu Item with id 1 was deleted");
+      expect(mockToast).toBeCalledWith(
+        "UCSB Dining Commons Menu Item with id 1 was deleted",
+      );
     });
 
     await waitFor(() => {
       expect(axiosMock.history.delete.length).toBe(1);
     });
-    expect(axiosMock.history.delete[0].url).toBe("/api/ucsbdiningcommonsmenuitem");
-    expect(axiosMock.history.delete[0].url).toBe("/api/ucsbdiningcommonsmenuitem");
+    expect(axiosMock.history.delete[0].url).toBe(
+      "/api/ucsbdiningcommonsmenuitem",
+    );
+    expect(axiosMock.history.delete[0].url).toBe(
+      "/api/ucsbdiningcommonsmenuitem",
+    );
     expect(axiosMock.history.delete[0].params).toEqual({ id: 1 });
   });
 });
