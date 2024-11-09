@@ -1,10 +1,10 @@
 import React from "react";
 import { useBackend } from "main/utils/useBackend";
-
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
 import UCSBDiningCommonsMenuItemTable from "main/components/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemTable";
 import { useCurrentUser, hasRole } from "main/utils/currentUser";
 import { Button } from "react-bootstrap";
+
 
 export default function UCSBDiningCommonsMenuItemIndexPage() {
   const currentUser = useCurrentUser();

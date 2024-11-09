@@ -51,7 +51,7 @@ const preview = {
   },
 
   loaders: [mswLoader],
-  tags: ["autodocs"],
+  tags: ["autodocs", "autodocs"],
 };
 
 export default preview;

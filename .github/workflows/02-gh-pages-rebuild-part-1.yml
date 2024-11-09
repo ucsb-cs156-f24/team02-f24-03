@@ -333,7 +333,6 @@ jobs:
         name: prs-${{ matrix.value.number }}-javadoc
         path: ${{ env.destination }}
         overwrite: true
-    
   b-build-chromatic-for-each-pr:
     name: b - Chromatic (${{ matrix.value.number }}, ${{ matrix.value.headRefName }})
     runs-on: ubuntu-latest
