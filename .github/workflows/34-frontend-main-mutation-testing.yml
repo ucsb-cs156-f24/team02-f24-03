@@ -7,7 +7,11 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: [frontend/**, .github/workflows/34-frontend-main-testing-stryker-js-mutation-testing.yml]
+    paths:
+      [
+        frontend/**,
+        .github/workflows/34-frontend-main-testing-stryker-js-mutation-testing.yml,
+      ]
 
 jobs:
   build:
@@ -19,7 +23,7 @@ jobs:
         with:
           timezoneLinux: "America/Los_Angeles"
       - uses: actions/checkout@v4
-        with: 
+        with:
           fetch-depth: 2
 
       - name: Create directory in case it doesn't exist
@@ -55,7 +59,7 @@ jobs:
         with:
           name: stryker-report
           path: frontend/reports/mutation/*
-  
+
       - name: Deploy 🚀
         if: always() # always upload artifacts, even if tests fail
         uses: JamesIves/github-pages-deploy-action@v4

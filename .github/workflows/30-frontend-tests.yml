@@ -18,17 +18,16 @@ jobs:
         with:
           timezoneLinux: "America/Los_Angeles"
       - uses: actions/checkout@v4
-        with: 
+        with:
           fetch-depth: 2
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: 'frontend/package.json'
-          cache: 'npm'
+          node-version-file: "frontend/package.json"
+          cache: "npm"
           cache-dependency-path: frontend/package-lock.json
 
       - run: npm ci
         working-directory: ./frontend
       - run: npm test
         working-directory: ./frontend
-    
