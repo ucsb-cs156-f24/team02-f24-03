@@ -5,7 +5,6 @@ import UCSBDiningCommonsMenuItemTable from "main/components/UCSBDiningCommonsMen
 import { useCurrentUser, hasRole } from "main/utils/currentUser";
 import { Button } from "react-bootstrap";
 
-
 export default function UCSBDiningCommonsMenuItemIndexPage() {
   const currentUser = useCurrentUser();
 
