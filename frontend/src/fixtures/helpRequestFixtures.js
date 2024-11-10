@@ -6,7 +6,7 @@ const helpRequestFixtures = {
     tableOrBreakoutRoom: "table",
     requestTime: "2022-01-02T12:00:00",
     explanation: "prod is acting up!",
-    solved: true,
+    solved: "true",
   },
   threeRequests: [
     {
@@ -16,7 +16,7 @@ const helpRequestFixtures = {
       tableOrBreakoutRoom: "table",
       requestTime: "2022-01-02T12:00:00",
       explanation: "prod is acting up!",
-      solved: true,
+      solved: "true",
     },
     {
       id: 2,
@@ -25,7 +25,7 @@ const helpRequestFixtures = {
       tableOrBreakoutRoom: "breakoutRoom",
       requestTime: "2023-02-03T12:00:00",
       explanation: "qa is not working! ;-;",
-      solved: false,
+      solved: "false",
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ const helpRequestFixtures = {
       tableOrBreakoutRoom: "neither",
       requestTime: "2021-03-04T12:00:00",
       explanation: "Everything is screwed up! D:<",
-      solved: true,
+      solved: "true",
     },
   ],
 };
