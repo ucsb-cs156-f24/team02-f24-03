@@ -128,13 +128,19 @@ describe("HelpRequestEditPage tests", () => {
       await screen.findByTestId("HelpRequestForm-requesterEmail");
 
       const idField = screen.getByTestId("HelpRequestForm-id");
-      const requesterEmailField = screen.getByTestId("HelpRequestForm-requesterEmail");
+      const requesterEmailField = screen.getByTestId(
+        "HelpRequestForm-requesterEmail",
+      );
       const teamIdField = screen.getByTestId("HelpRequestForm-teamId");
-      const tableOrBreakoutRoomField = screen.getByTestId("HelpRequestForm-tableOrBreakoutRoom");
+      const tableOrBreakoutRoomField = screen.getByTestId(
+        "HelpRequestForm-tableOrBreakoutRoom",
+      );
       const requestTimeField = screen.getByTestId(
         "HelpRequestForm-requestTime",
       );
-      const explanationField = screen.getByTestId("HelpRequestForm-explanation");
+      const explanationField = screen.getByTestId(
+        "HelpRequestForm-explanation",
+      );
       const solvedField = screen.getByTestId("HelpRequestForm-solved");
       const submitButton = screen.getByTestId("HelpRequestForm-submit");
 
@@ -160,13 +166,19 @@ describe("HelpRequestEditPage tests", () => {
       await screen.findByTestId("HelpRequestForm-requesterEmail");
 
       const idField = screen.getByTestId("HelpRequestForm-id");
-      const requesterEmailField = screen.getByTestId("HelpRequestForm-requesterEmail");
+      const requesterEmailField = screen.getByTestId(
+        "HelpRequestForm-requesterEmail",
+      );
       const teamIdField = screen.getByTestId("HelpRequestForm-teamId");
-      const tableOrBreakoutRoomField = screen.getByTestId("HelpRequestForm-tableOrBreakoutRoom");
+      const tableOrBreakoutRoomField = screen.getByTestId(
+        "HelpRequestForm-tableOrBreakoutRoom",
+      );
       const requestTimeField = screen.getByTestId(
         "HelpRequestForm-requestTime",
       );
-      const explanationField = screen.getByTestId("HelpRequestForm-explanation");
+      const explanationField = screen.getByTestId(
+        "HelpRequestForm-explanation",
+      );
       const solvedField = screen.getByTestId("HelpRequestForm-solved");
       const submitButton = screen.getByTestId("HelpRequestForm-submit");
 
@@ -179,13 +191,19 @@ describe("HelpRequestEditPage tests", () => {
       expect(solvedField).toHaveValue("false");
       expect(submitButton).toBeInTheDocument();
 
-      fireEvent.change(requesterEmailField, { target: { value: "random@email.com" } });
+      fireEvent.change(requesterEmailField, {
+        target: { value: "random@email.com" },
+      });
       fireEvent.change(teamIdField, { target: { value: "007" } });
-      fireEvent.change(tableOrBreakoutRoomField, { target: { value: "Breakout Room" } });
+      fireEvent.change(tableOrBreakoutRoomField, {
+        target: { value: "Breakout Room" },
+      });
       fireEvent.change(requestTimeField, {
         target: { value: "2024-01-01T04:30" },
       });
-      fireEvent.change(explanationField, { target: { value: "everything :(" } });
+      fireEvent.change(explanationField, {
+        target: { value: "everything :(" },
+      });
       fireEvent.change(solvedField, { target: { value: "true" } });
 
       fireEvent.click(submitButton);
