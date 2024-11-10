@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for pages/HelpRequest/HelpRequestCreatePage.js</title>
+    <title>Code coverage report for pages/MenuItemReview/MenuItemReviewCreatePage.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">pages/HelpRequest</a> HelpRequestCreatePage.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">pages/MenuItemReview</a> MenuItemReviewCreatePage.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -114,9 +114,7 @@
 <a name='L49'></a><a href='#L49'>49</a>
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -124,7 +122,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -168,30 +165,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import HelpRequestForm from "main/components/HelpRequest/HelpRequestForm";
+import MenuItemReviewForm from "main/components/MenuItemReview/MenuItemReviewForm";
 import { Navigate } from "react-router-dom";
 import { useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
 &nbsp;
-export default function HelpRequestCreatePage({ storybook = false }) {
-  const objectToAxiosParams = (helpRequest) =&gt; ({
-    url: "/api/helprequests/post",
+export default function MenuItemReviewCreatePage({ storybook = false }) {
+  const objectToAxiosParams = (review) =&gt; ({
+    url: "/api/menuitemreview/post",
     method: "POST",
     params: {
-      requesterEmail: helpRequest.requesterEmail,
-      teamId: helpRequest.teamId,
-      tableOrBreakoutRoom: helpRequest.tableOrBreakoutRoom,
-      requestTime: helpRequest.requestTime,
-      explanation: helpRequest.explanation,
-      solved: helpRequest.solved,
+      itemId: review.itemid,
+      reviewerEmail: review.revieweremail,
+      stars: review.stars,
+      localDateTime: review.datereviewed,
+      comments: review.comments,
     },
   });
 &nbsp;
-  const onSuccess = (helpRequest) =&gt; {
+  const onSuccess = (review) =&gt; {
     toast(
-      `New helpRequest Created - id: ${helpRequest.id} requester email: ${helpRequest.requesterEmail}`,
+      `New review Created - id: ${review.id} email: ${review.reviewerEmail}`,
     );
   };
 &nbsp;
@@ -199,7 +194,7 @@ export default function HelpRequestCreatePage({ storybook = false }) {
     objectToAxiosParams,
     { onSuccess },
     // Stryker disable next-line all : hard to set up test for caching
-    ["/api/helprequests/all"],
+    ["/api/menuitemreview/all"], // mutation makes this key stale so that pages relying on it reload
   );
 &nbsp;
   const { isSuccess } = mutation;
@@ -209,15 +204,14 @@ export default function HelpRequestCreatePage({ storybook = false }) {
   };
 &nbsp;
   if (isSuccess &amp;&amp; !storybook) {
-    return &lt;Navigate to="/helprequests" /&gt;;
+    return &lt;Navigate to="/menuitemreview" /&gt;;
   }
 &nbsp;
   return (
     &lt;BasicLayout&gt;
       &lt;div className="pt-2"&gt;
-        &lt;h1&gt;Create New HelpRequest&lt;/h1&gt;
-&nbsp;
-        &lt;HelpRequestForm submitAction={onSubmit} /&gt;
+        &lt;h1&gt;Create New Review&lt;/h1&gt;
+        &lt;MenuItemReviewForm submitAction={onSubmit} /&gt;
       &lt;/div&gt;
     &lt;/BasicLayout&gt;
   );

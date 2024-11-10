@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/UCSBOrganization/UCSBOrganizationForm.js</title>
+    <title>Code coverage report for components/MenuItemReview/MenuItemReviewForm.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/UCSBOrganization</a> UCSBOrganizationForm.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/MenuItemReview</a> MenuItemReviewForm.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -193,7 +193,9 @@
 <a name='L128'></a><a href='#L128'>128</a>
 <a name='L129'></a><a href='#L129'>129</a>
 <a name='L130'></a><a href='#L130'>130</a>
-<a name='L131'></a><a href='#L131'>131</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -207,14 +209,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -327,7 +331,7 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 &nbsp;
-function UCSBOrganizationForm({
+function MenuItemReviewForm({
   initialContents,
   submitAction,
   buttonLabel = "Create",
@@ -342,99 +346,101 @@ function UCSBOrganizationForm({
 &nbsp;
   const navigate = useNavigate();
 &nbsp;
-  const testIdPrefix = "UCSBOrganizationForm";
+  const testIdPrefix = "MenuItemReviewForm";
 &nbsp;
   return (
     &lt;Form onSubmit={handleSubmit(submitAction)}&gt;
-      {initialContents ? (
+      {initialContents &amp;&amp; (
         &lt;Form.Group className="mb-3"&gt;
-          &lt;Form.Label htmlFor="orgCode"&gt;Organization Code&lt;/Form.Label&gt;
+          &lt;Form.Label htmlFor="id"&gt;Id&lt;/Form.Label&gt;
           &lt;Form.Control
-            data-testid={testIdPrefix + "-orgCode"}
-            id="orgCode"
+            data-testid={testIdPrefix + "-id"}
+            id="id"
             type="text"
-            {...register("orgCode")}
-            value={initialContents.orgCode}
+            {...register("id")}
+            value={initialContents.id}
             disabled
           /&gt;
-        &lt;/Form.Group&gt;
-      ) : (
-        &lt;Form.Group className="mb-3"&gt;
-          &lt;Form.Label htmlFor="orgCode"&gt;Organization Code&lt;/Form.Label&gt;
-          &lt;Form.Control
-            data-testid={testIdPrefix + "-orgCode"}
-            id="orgCode"
-            type="text"
-            {...register("orgCode", {
-              required: "Organization Code is required.",
-            })}
-          /&gt;
-          &lt;Form.Control.Feedback type="invalid"&gt;
-            {errors.orgCode?.message}
-          &lt;/Form.Control.Feedback&gt;
         &lt;/Form.Group&gt;
       )}
 &nbsp;
       &lt;Form.Group className="mb-3"&gt;
-        &lt;Form.Label htmlFor="orgTranslationShort"&gt;
-          Organization Translation Short
-        &lt;/Form.Label&gt;
+        &lt;Form.Label htmlFor="itemid"&gt;Item Id&lt;/Form.Label&gt;
         &lt;Form.Control
-          data-testid={testIdPrefix + "-orgTranslationShort"}
-          id="orgTranslationShort"
+          data-testid={testIdPrefix + "-itemid"}
+          id="itemid"
           type="text"
-          isInvalid={Boolean(errors.orgTranslationShort)}
-          {...register("orgTranslationShort", {
-            required: "Organization Translation Short is required.",
-            maxLength: {
-              value: 15,
-              message: "Max length 15 characters",
-            },
+          isInvalid={Boolean(errors.itemid)}
+          {...register("itemid", {
+            required: "ItemID is required.",
           })}
         /&gt;
         &lt;Form.Control.Feedback type="invalid"&gt;
-          {errors.orgTranslationShort?.message}
+          {errors.itemid?.message}
         &lt;/Form.Control.Feedback&gt;
       &lt;/Form.Group&gt;
 &nbsp;
       &lt;Form.Group className="mb-3"&gt;
-        &lt;Form.Label htmlFor="orgTranslation"&gt;
-          Organization Translation
-        &lt;/Form.Label&gt;
+        &lt;Form.Label htmlFor="revieweremail"&gt;Reviewer Email&lt;/Form.Label&gt;
         &lt;Form.Control
-          data-testid={testIdPrefix + "-orgTranslation"}
-          id="orgTranslation"
+          data-testid={testIdPrefix + "-revieweremail"}
+          id="revieweremail"
           type="text"
-          isInvalid={Boolean(errors.orgTranslation)}
-          {...register("orgTranslation", {
-            required: "Organization Translation is required.",
+          isInvalid={Boolean(errors.revieweremail)}
+          {...register("revieweremail", {
+            required: "Reviewer Email is required.",
           })}
         /&gt;
         &lt;Form.Control.Feedback type="invalid"&gt;
-          {errors.orgTranslation?.message}
+          {errors.revieweremail?.message}
         &lt;/Form.Control.Feedback&gt;
       &lt;/Form.Group&gt;
 &nbsp;
       &lt;Form.Group className="mb-3"&gt;
-        &lt;Form.Label htmlFor="inactive"&gt;Inactive&lt;/Form.Label&gt;
-        &lt;Form.Select
-          data-testid={testIdPrefix + "-inactive"}
-          id="inactive"
+        &lt;Form.Label htmlFor="stars"&gt;Stars&lt;/Form.Label&gt;
+        &lt;Form.Control
+          data-testid={testIdPrefix + "-stars"}
+          id="stars"
           type="text"
-          isInvalid={Boolean(errors.inactive)}
-          {...register("inactive", {
-            pattern: {
-              value: /true|false/,
-              message: "Inactive status is required.",
-            },
+          isInvalid={Boolean(errors.stars)}
+          {...register("stars", {
+            required: "Stars is required.",
           })}
-        &gt;
-          &lt;option&gt;Select an option&lt;/option&gt;
-          &lt;option value="true"&gt;True&lt;/option&gt;
-          &lt;option value="false"&gt;False&lt;/option&gt;
-        &lt;/Form.Select&gt;
+        /&gt;
         &lt;Form.Control.Feedback type="invalid"&gt;
-          {errors.inactive?.message}
+          {errors.stars?.message}
+        &lt;/Form.Control.Feedback&gt;
+      &lt;/Form.Group&gt;
+&nbsp;
+      &lt;Form.Group className="mb-3"&gt;
+        &lt;Form.Label htmlFor="datereviewed"&gt;Date Reviewed&lt;/Form.Label&gt;
+        &lt;Form.Control
+          data-testid={testIdPrefix + "-datereviewed"}
+          id="datereviewed"
+          type="text"
+          isInvalid={Boolean(errors.datereviewed)}
+          {...register("datereviewed", {
+            required: "Date Reviewed is required.",
+          })}
+        /&gt;
+        &lt;Form.Control.Feedback type="invalid"&gt;
+          {errors.datereviewed?.message}
+        &lt;/Form.Control.Feedback&gt;
+      &lt;/Form.Group&gt;
+&nbsp;
+      &lt;Form.Group className="mb-3"&gt;
+        &lt;Form.Label htmlFor="comments"&gt;Comments&lt;/Form.Label&gt;
+        &lt;Form.Control
+          data-testid={testIdPrefix + "-comments"}
+          id="comments"
+          type="text"
+          isInvalid={Boolean(errors.comments)}
+          {...register("comments", {
+            required: "Comments is required.",
+          })}
+        /&gt;
+        &lt;Form.Control.Feedback type="invalid"&gt;
+          {errors.comments?.message}
         &lt;/Form.Control.Feedback&gt;
       &lt;/Form.Group&gt;
 &nbsp;
@@ -452,7 +458,7 @@ function UCSBOrganizationForm({
   );
 }
 &nbsp;
-export default UCSBOrganizationForm;
+export default MenuItemReviewForm;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
