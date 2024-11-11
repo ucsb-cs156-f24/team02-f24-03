@@ -41,13 +41,13 @@ import java.time.LocalDateTime;
     @Autowired
 
     /**
-     * List all Recommendation Requests
+     * List all recommendationRequests
      * 
-     * @return an iterable of Recommendation Request
+     * @return an iterable of recommendationRequest
      */
     RecommendationRequestRepository recommendationRequestRepository;
 
-    @Operation(summary= &quot;List all recommendation requests&quot;)
+    @Operation(summary= &quot;List all recommendationRequests&quot;)
     @PreAuthorize(&quot;hasRole('ROLE_USER')&quot;)
     @GetMapping(&quot;/all&quot;)
     public Iterable&lt;RecommendationRequest&gt; allRecommendationRequests() {
@@ -56,9 +56,9 @@ import java.time.LocalDateTime;
     }
 
     /**
-     * Get a single recommendation request by id
+     * Get a single recommendationRequest by id
      * 
-     * @param id the id of the recommendation request
+     * @param id the id of the recommendationRequest
      * @return a RecommendationRequest
      */
     @Operation(summary= &quot;Get a single date&quot;)
@@ -73,7 +73,7 @@ import java.time.LocalDateTime;
     }
 
     /**
-     * Create a new recommendation request
+     * Create a new recommendationRequest
      * 
      * @param requesterEmail  email of the requester
      * @param professorEmail  email of the professor
@@ -83,7 +83,7 @@ import java.time.LocalDateTime;
      * @param done            completed or no 
      * @return the saved recommendationRequest
      */
-    @Operation(summary= &quot;Create a new recommendation request&quot;)
+    @Operation(summary= &quot;Create a new recommendationRequest&quot;)
     @PreAuthorize(&quot;hasRole('ROLE_ADMIN')&quot;)
     @PostMapping(&quot;/post&quot;)
     public RecommendationRequest postRecommendationRequest(
