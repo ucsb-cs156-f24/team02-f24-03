@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/Nav/AppNavbar.js</title>
+    <title>Code coverage report for components/MenuItemReview/MenuItemReviewForm.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/Nav</a> AppNavbar.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/MenuItemReview</a> MenuItemReviewForm.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>20/20</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -173,7 +173,29 @@
 <a name='L108'></a><a href='#L108'>108</a>
 <a name='L109'></a><a href='#L109'>109</a>
 <a name='L110'></a><a href='#L110'>110</a>
-<a name='L111'></a><a href='#L111'>111</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -184,15 +206,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">118x</span>
-<span class="cline-any cline-yes">118x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -283,116 +307,158 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { hasRole } from "main/utils/currentUser";
-import AppNavbarLocalhost from "main/components/Nav/AppNavbarLocalhost";
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Button, Form } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 &nbsp;
-export default function AppNavbar({
-  currentUser,
-  systemInfo,
-  doLogout,
-  currentUrl = window.location.href,
+function MenuItemReviewForm({
+  initialContents,
+  submitAction,
+  buttonLabel = "Create",
 }) {
-  var oauthLogin = systemInfo?.oauthLogin || "/oauth2/authorization/google";
+  // Stryker disable all
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({ defaultValues: initialContents || {} });
+  // Stryker restore all
+&nbsp;
+  const navigate = useNavigate();
+&nbsp;
+  const testIdPrefix = "MenuItemReviewForm";
+&nbsp;
   return (
-    &lt;&gt;
-      {(currentUrl.startsWith("http://localhost:3000") ||
-        currentUrl.startsWith("http://127.0.0.1:3000")) &amp;&amp; (
-        &lt;AppNavbarLocalhost url={currentUrl} /&gt;
+    &lt;Form onSubmit={handleSubmit(submitAction)}&gt;
+      {initialContents &amp;&amp; (
+        &lt;Form.Group className="mb-3"&gt;
+          &lt;Form.Label htmlFor="id"&gt;Id&lt;/Form.Label&gt;
+          &lt;Form.Control
+            data-testid={testIdPrefix + "-id"}
+            id="id"
+            type="text"
+            {...register("id")}
+            value={initialContents.id}
+            disabled
+          /&gt;
+        &lt;/Form.Group&gt;
       )}
-      &lt;Navbar
-        expand="xl"
-        variant="dark"
-        bg="dark"
-        sticky="top"
-        data-testid="AppNavbar"
+&nbsp;
+      &lt;Form.Group className="mb-3"&gt;
+        &lt;Form.Label htmlFor="itemid"&gt;Item Id&lt;/Form.Label&gt;
+        &lt;Form.Control
+          data-testid={testIdPrefix + "-itemid"}
+          id="itemid"
+          type="text"
+          isInvalid={Boolean(errors.itemid)}
+          {...register("itemid", {
+            required: "ItemID is required.",
+          })}
+        /&gt;
+        &lt;Form.Control.Feedback type="invalid"&gt;
+          {errors.itemid?.message}
+        &lt;/Form.Control.Feedback&gt;
+      &lt;/Form.Group&gt;
+&nbsp;
+      &lt;Form.Group className="mb-3"&gt;
+        &lt;Form.Label htmlFor="revieweremail"&gt;Reviewer Email&lt;/Form.Label&gt;
+        &lt;Form.Control
+          data-testid={testIdPrefix + "-revieweremail"}
+          id="revieweremail"
+          type="text"
+          isInvalid={Boolean(errors.revieweremail)}
+          {...register("revieweremail", {
+            required: "Reviewer Email is required.",
+          })}
+        /&gt;
+        &lt;Form.Control.Feedback type="invalid"&gt;
+          {errors.revieweremail?.message}
+        &lt;/Form.Control.Feedback&gt;
+      &lt;/Form.Group&gt;
+&nbsp;
+      &lt;Form.Group className="mb-3"&gt;
+        &lt;Form.Label htmlFor="stars"&gt;Stars&lt;/Form.Label&gt;
+        &lt;Form.Control
+          data-testid={testIdPrefix + "-stars"}
+          id="stars"
+          type="text"
+          isInvalid={Boolean(errors.stars)}
+          {...register("stars", {
+            required: "Stars is required.",
+          })}
+        /&gt;
+        &lt;Form.Control.Feedback type="invalid"&gt;
+          {errors.stars?.message}
+        &lt;/Form.Control.Feedback&gt;
+      &lt;/Form.Group&gt;
+&nbsp;
+      &lt;Form.Group className="mb-3"&gt;
+        &lt;Form.Label htmlFor="datereviewed"&gt;Date Reviewed&lt;/Form.Label&gt;
+        &lt;Form.Control
+          data-testid={testIdPrefix + "-datereviewed"}
+          id="datereviewed"
+          type="text"
+          isInvalid={Boolean(errors.datereviewed)}
+          {...register("datereviewed", {
+            required: "Date Reviewed is required.",
+          })}
+        /&gt;
+        &lt;Form.Control.Feedback type="invalid"&gt;
+          {errors.datereviewed?.message}
+        &lt;/Form.Control.Feedback&gt;
+      &lt;/Form.Group&gt;
+&nbsp;
+      &lt;Form.Group className="mb-3"&gt;
+        &lt;Form.Label htmlFor="comments"&gt;Comments&lt;/Form.Label&gt;
+        &lt;Form.Control
+          data-testid={testIdPrefix + "-comments"}
+          id="comments"
+          type="text"
+          isInvalid={Boolean(errors.comments)}
+          {...register("comments", {
+            required: "Comments is required.",
+          })}
+        /&gt;
+        &lt;Form.Control.Feedback type="invalid"&gt;
+          {errors.comments?.message}
+        &lt;/Form.Control.Feedback&gt;
+      &lt;/Form.Group&gt;
+&nbsp;
+      &lt;Button type="submit" data-testid={testIdPrefix + "-submit"}&gt;
+        {buttonLabel}
+      &lt;/Button&gt;
+      &lt;Button
+        variant="Secondary"
+        onClick={() =&gt; navigate(-1)}
+        data-testid={testIdPrefix + "-cancel"}
       &gt;
-        &lt;Container&gt;
-          &lt;Navbar.Brand as={Link} to="/"&gt;
-            Example
-          &lt;/Navbar.Brand&gt;
-&nbsp;
-          &lt;Navbar.Toggle /&gt;
-&nbsp;
-          &lt;Nav className="me-auto"&gt;
-            {systemInfo?.springH2ConsoleEnabled &amp;&amp; (
-              &lt;&gt;
-                &lt;Nav.Link href="/h2-console"&gt;H2Console&lt;/Nav.Link&gt;
-              &lt;/&gt;
-            )}
-            {systemInfo?.showSwaggerUILink &amp;&amp; (
-              &lt;&gt;
-                &lt;Nav.Link href="/swagger-ui/index.html"&gt;Swagger&lt;/Nav.Link&gt;
-              &lt;/&gt;
-            )}
-          &lt;/Nav&gt;
-&nbsp;
-          &lt;&gt;
-            {/* be sure that each NavDropdown has a unique id and data-testid  */}
-          &lt;/&gt;
-&nbsp;
-          &lt;Navbar.Collapse className="justify-content-between"&gt;
-            &lt;Nav className="mr-auto"&gt;
-              {hasRole(currentUser, "ROLE_ADMIN") &amp;&amp; (
-                &lt;NavDropdown
-                  title="Admin"
-                  id="appnavbar-admin-dropdown"
-                  data-testid="appnavbar-admin-dropdown"
-                &gt;
-                  &lt;NavDropdown.Item href="/admin/users"&gt;Users&lt;/NavDropdown.Item&gt;
-                &lt;/NavDropdown&gt;
-              )}
-              {currentUser &amp;&amp; currentUser.loggedIn ? (
-                &lt;&gt;
-                  &lt;Nav.Link as={Link} to="/restaurants"&gt;
-                    Restaurants
-                  &lt;/Nav.Link&gt;
-                  &lt;Nav.Link as={Link} to="/helprequests"&gt;
-                    Help Requests
-                  &lt;/Nav.Link&gt;
-                  &lt;Nav.Link as={Link} to="/ucsbdiningcommonsmenuitem"&gt;
-                    UCSB Dining Commons Menu Items
-                  &lt;/Nav.Link&gt;
-                  &lt;Nav.Link as={Link} to="/ucsbdates"&gt;
-                    UCSB Dates
-                  &lt;/Nav.Link&gt;
-                  &lt;Nav.Link as={Link} to="/recommendationrequests"&gt;
-                    Recommendation Request
-                  &lt;/Nav.Link&gt;
-                  &lt;Nav.Link as={Link} to="/articles"&gt;
-                    Articles
-                  &lt;/Nav.Link&gt;
-                  &lt;Nav.Link as={Link} to="/placeholder"&gt;
-                    Placeholder
-                  &lt;/Nav.Link&gt;
-                  &lt;Nav.Link as={Link} to="/menuitemreview"&gt;
-                    Menu Item Reviews
-                  &lt;/Nav.Link&gt;
-                &lt;/&gt;
-              ) : (
-                &lt;&gt;&lt;/&gt;
-              )}
-            &lt;/Nav&gt;
-&nbsp;
-            &lt;Nav className="ml-auto"&gt;
-              {currentUser &amp;&amp; currentUser.loggedIn ? (
-                &lt;&gt;
-                  &lt;Navbar.Text className="me-3" as={Link} to="/profile"&gt;
-                    Welcome, {currentUser.root.user.email}
-                  &lt;/Navbar.Text&gt;
-                  &lt;Button onClick={doLogout}&gt;Log Out&lt;/Button&gt;
-                &lt;/&gt;
-              ) : (
-                &lt;Button href={oauthLogin}&gt;Log In&lt;/Button&gt;
-              )}
-            &lt;/Nav&gt;
-          &lt;/Navbar.Collapse&gt;
-        &lt;/Container&gt;
-      &lt;/Navbar&gt;
-    &lt;/&gt;
+        Cancel
+      &lt;/Button&gt;
+    &lt;/Form&gt;
   );
 }
+&nbsp;
+export default MenuItemReviewForm;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

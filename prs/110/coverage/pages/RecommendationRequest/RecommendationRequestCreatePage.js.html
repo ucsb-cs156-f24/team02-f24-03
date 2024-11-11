@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for pages/Restaurants/RestaurantCreatePage.js</title>
+    <title>Code coverage report for pages/RecommendationRequest/RecommendationRequestCreatePage.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">pages/Restaurants</a> RestaurantCreatePage.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">pages/RecommendationRequest</a> RecommendationRequestCreatePage.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -111,7 +111,12 @@
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
 <a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -119,6 +124,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -159,25 +168,30 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import RestaurantForm from "main/components/Restaurants/RestaurantForm";
+import RecommendationRequestForm from "main/components/RecommendationRequest/RecommendationRequestForm";
 import { Navigate } from "react-router-dom";
 import { useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
 &nbsp;
-export default function RestaurantCreatePage({ storybook = false }) {
-  const objectToAxiosParams = (restaurant) =&gt; ({
-    url: "/api/restaurants/post",
+export default function RecommendationRequestCreatePage({ storybook = false }) {
+  const objectToAxiosParams = (recommendationRequest) =&gt; ({
+    url: "/api/recommendationrequests/post",
     method: "POST",
     params: {
-      name: restaurant.name,
-      description: restaurant.description,
+      requesterEmail: recommendationRequest.requesterEmail,
+      professorEmail: recommendationRequest.professorEmail,
+      explanation: recommendationRequest.explanation,
+      dateRequested: recommendationRequest.dateRequested,
+      dateNeeded: recommendationRequest.dateNeeded,
+      done: recommendationRequest.done,
     },
   });
 &nbsp;
-  const onSuccess = (restaurant) =&gt; {
+  const onSuccess = (recommendationRequest) =&gt; {
     toast(
-      `New restaurant Created - id: ${restaurant.id} name: ${restaurant.name}`,
+      `New recommendationRequest Created - id: ${recommendationRequest.id} requesterEmail: ${recommendationRequest.requesterEmail}`,
     );
   };
 &nbsp;
@@ -185,7 +199,7 @@ export default function RestaurantCreatePage({ storybook = false }) {
     objectToAxiosParams,
     { onSuccess },
     // Stryker disable next-line all : hard to set up test for caching
-    ["/api/restaurants/all"], // mutation makes this key stale so that pages relying on it reload
+    ["/api/recommendationrequests/all"],
   );
 &nbsp;
   const { isSuccess } = mutation;
@@ -195,14 +209,15 @@ export default function RestaurantCreatePage({ storybook = false }) {
   };
 &nbsp;
   if (isSuccess &amp;&amp; !storybook) {
-    return &lt;Navigate to="/restaurants" /&gt;;
+    return &lt;Navigate to="/recommendationrequests" /&gt;;
   }
 &nbsp;
   return (
     &lt;BasicLayout&gt;
       &lt;div className="pt-2"&gt;
-        &lt;h1&gt;Create New Restaurant&lt;/h1&gt;
-        &lt;RestaurantForm submitAction={onSubmit} /&gt;
+        &lt;h1&gt;Create New recommendationRequest&lt;/h1&gt;
+&nbsp;
+        &lt;RecommendationRequestForm submitAction={onSubmit} /&gt;
       &lt;/div&gt;
     &lt;/BasicLayout&gt;
   );
