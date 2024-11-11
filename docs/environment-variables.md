@@ -1,18 +1,20 @@
 # Environment Variables are set up in `.env.SAMPLE`
 
-Any environment variables  needed in the application should be put into `.env.SAMPLE`
-* This is particularly true for secret or sensitive ones such as credentials, api-keys, etc; these should not be
+Any environment variables needed in the application should be put into `.env.SAMPLE`
+
+- This is particularly true for secret or sensitive ones such as credentials, api-keys, etc; these should not be
   directly entered into `.properties` files that are committed to the repo.
-* The `.env.SAMPLE` file should never contain an *actual* value for any secret, but should instead contain 
+- The `.env.SAMPLE` file should never contain an _actual_ value for any secret, but should instead contain
   placeholder values; for example:
   ```
   GOOGLE_CLIENT_ID=put-client-id-here
   ```
-* the file `.env.SAMPLE` *should* be committed to the GitHub repo.
+- the file `.env.SAMPLE` _should_ be committed to the GitHub repo.
 
 The actual values go into a file `.env` that is copied from `.env.SAMPLE`, but that is NOT committed to the repo.
-* `.env` goes into your `.gitignore`
-* If you need to exchange secrets with other members of your team, consider doing so in private DMs on Slack rather than,
+
+- `.env` goes into your `.gitignore`
+- If you need to exchange secrets with other members of your team, consider doing so in private DMs on Slack rather than,
   for example, a message in your team's public slack channel.
 
 # Environment Variables should have default values
@@ -32,20 +34,18 @@ app.admin.emails=${ADMIN_EMAILS:${env.ADMIN_EMAILS:phtcon@ucsb.edu}}
 
 The fallback values, in this case being:
 
-| Env variable | Default Value |
-|--------------|---------------|
-| `GOOGLE_CLIENT_ID` | `client_id_unset` |
+| Env variable           | Default Value         |
+| ---------------------- | --------------------- |
+| `GOOGLE_CLIENT_ID`     | `client_id_unset`     |
 | `GOOGLE_CLIENT_SECRET` | `client_secret_unset` |
-| `ADMIN_EMAILS` | `phtcon@ucsb.edu` |
+| `ADMIN_EMAILS`         | `phtcon@ucsb.edu`     |
 
-While the values for `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` will not work in practice (i.e. with these values, OAuth login 
+While the values for `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` will not work in practice (i.e. with these values, OAuth login
 will fail), having a default value:
-* avoids the error that the Spring Boot application fails to load because a specific environment variable is undefined.
-* allows the test suite to run (since actual the actual OAuth protocol exchange is not part of any tests, but code that
-  requires those values to *have some non-null value* is run as part of the tests.
 
-It is recommended that if/when any additional environment variables are added to `.env.SAMPLE` that 
+- avoids the error that the Spring Boot application fails to load because a specific environment variable is undefined.
+- allows the test suite to run (since actual the actual OAuth protocol exchange is not part of any tests, but code that
+  requires those values to _have some non-null value_ is run as part of the tests.
+
+It is recommended that if/when any additional environment variables are added to `.env.SAMPLE` that
 similar fallback values be included in the `.properties` files.
-
-
-

@@ -14,5 +14,8 @@ const config = {
   },
   staticDirs: ["../public"],
   docs: {},
+  typescript: {
+    reactDocgen: "react-docgen-typescript",
+  },
 };
 export default config;
