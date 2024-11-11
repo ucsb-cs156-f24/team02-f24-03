@@ -1,48 +1,49 @@
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
 import { useParams } from "react-router-dom";
-import UCSBDiningCommonsMenuItemForm from "main/components/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemForm";
+// import RestaurantForm from "main/components/Restaurants/RestaurantForm";
+import MenuItemReviewForm from "main/components/MenuItemReview/MenuItemReviewForm";
 import { Navigate } from "react-router-dom";
 import { useBackend, useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
 
-export default function UCSBDiningCommonsMenuItemEditPage({
-  storybook = false,
-}) {
+export default function MenuItemReviewEditPage({ storybook = false }) {
   let { id } = useParams();
 
   const {
-    data: ucsbDiningCommonsMenuItem,
+    data: review,
     _error,
     _status,
   } = useBackend(
     // Stryker disable next-line all : don't test internal caching of React Query
-    [`/api/ucsbdiningcommonsmenuitem?id=${id}`],
+    [`/api/menuitemreview?id=${id}`],
     {
       // Stryker disable next-line all : GET is the default, so mutating this to "" doesn't introduce a bug
       method: "GET",
-      url: `/api/ucsbdiningcommonsmenuitem`,
+      url: `/api/menuitemreview`,
       params: {
         id,
       },
     },
   );
 
-  const objectToAxiosPutParams = (ucsbDiningCommonsMenuItem) => ({
-    url: "/api/ucsbdiningcommonsmenuitem",
+  const objectToAxiosPutParams = (review) => ({
+    url: "/api/menuitemreview",
     method: "PUT",
     params: {
-      id: ucsbDiningCommonsMenuItem.id,
+      id: review.id,
     },
     data: {
-      diningCommonsCode: ucsbDiningCommonsMenuItem.diningCommonsCode,
-      name: ucsbDiningCommonsMenuItem.name,
-      station: ucsbDiningCommonsMenuItem.station,
+      itemid: review.itemid,
+      revieweremail: review.revieweremail,
+      stars: review.stars,
+      datereviewed: review.datereviewed,
+      comments: review.comments,
     },
   });
 
-  const onSuccess = (ucsbDiningCommonsMenuItem) => {
+  const onSuccess = (review) => {
     toast(
-      `UCSB Dining Commons Menu Item Updated - id: ${ucsbDiningCommonsMenuItem.id} name: ${ucsbDiningCommonsMenuItem.name}`,
+      `Restaurant Updated - id: ${review.id} Reviewer Email: ${review.revieweremail}`,
     );
   };
 
@@ -50,7 +51,7 @@ export default function UCSBDiningCommonsMenuItemEditPage({
     objectToAxiosPutParams,
     { onSuccess },
     // Stryker disable next-line all : hard to set up test for caching
-    [`/api/ucsbdiningcommonsmenuitem?id=${id}`],
+    [`/api/menuitemreview?id=${id}`],
   );
 
   const { isSuccess } = mutation;
@@ -60,18 +61,18 @@ export default function UCSBDiningCommonsMenuItemEditPage({
   };
 
   if (isSuccess && !storybook) {
-    return <Navigate to="/ucsbdiningcommonsmenuitem" />;
+    return <Navigate to="/menuitemreview" />;
   }
 
   return (
     <BasicLayout>
       <div className="pt-2">
-        <h1>Edit UCSB Dining Commons Menu Item</h1>
-        {ucsbDiningCommonsMenuItem && (
-          <UCSBDiningCommonsMenuItemForm
+        <h1>Edit Menu Item Review</h1>
+        {review && (
+          <MenuItemReviewForm
             submitAction={onSubmit}
             buttonLabel={"Update"}
-            initialContents={ucsbDiningCommonsMenuItem}
+            initialContents={review}
           />
         )}
       </div>
