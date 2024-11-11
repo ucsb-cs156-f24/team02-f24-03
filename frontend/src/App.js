@@ -160,8 +160,6 @@ function App() {
               exact
               path="/helprequests"
               element={<HelpRequestIndexPage />}
-              path="/menuitemreview"
-              element={<MenuItemReviewIndexPage />}
             />
           </>
         )}
@@ -176,6 +174,22 @@ function App() {
               exact
               path="/helprequests/create"
               element={<HelpRequestCreatePage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_USER") && (
+          <>
+            <Route
+              exact
+              path="/menuitemreview"
+              element={<MenuItemReviewIndexPage />}
+            />
+          </>
+        )}
+        {hasRole(currentUser, "ROLE_ADMIN") && (
+          <>
+            <Route
+              exact
               path="/menuitemreview/edit/:id"
               element={<MenuItemReviewEditPage />}
             />
