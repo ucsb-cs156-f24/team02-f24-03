@@ -1,21 +1,22 @@
 import React from "react";
 import { useBackend } from "main/utils/useBackend";
+
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import UCSBDiningCommonsMenuItemTable from "main/components/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemTable";
+import MenuItemReviewTable from "main/components/MenuItemReview/MenuItemReviewTable";
 import { useCurrentUser, hasRole } from "main/utils/currentUser";
 import { Button } from "react-bootstrap";
 
-export default function UCSBDiningCommonsMenuItemIndexPage() {
+export default function MenuItemReviewIndexPage() {
   const currentUser = useCurrentUser();
 
   const {
-    data: ucsbDiningCommonsMenuItem,
+    data: reviews,
     error: _error,
     status: _status,
   } = useBackend(
     // Stryker disable next-line all : don't test internal caching of React Query
-    ["/api/ucsbdiningcommonsmenuitem/all"],
-    { method: "GET", url: "/api/ucsbdiningcommonsmenuitem/all" },
+    ["/api/menuitemreview/all"],
+    { method: "GET", url: "/api/menuitemreview/all" },
     // Stryker disable next-line all : don't test default value of empty list
     [],
   );
@@ -25,10 +26,10 @@ export default function UCSBDiningCommonsMenuItemIndexPage() {
       return (
         <Button
           variant="primary"
-          href="/ucsbdiningcommonsmenuitem/create"
+          href="/menuitemreview/create"
           style={{ float: "right" }}
         >
-          Create UCSB Dining Commons Menu Item
+          Create Menu Item Review
         </Button>
       );
     }
@@ -38,11 +39,8 @@ export default function UCSBDiningCommonsMenuItemIndexPage() {
     <BasicLayout>
       <div className="pt-2">
         {createButton()}
-        <h1>UCSB Dining Commons Menu Items</h1>
-        <UCSBDiningCommonsMenuItemTable
-          ucsbDiningCommonsMenuItem={ucsbDiningCommonsMenuItem}
-          currentUser={currentUser}
-        />
+        <h1>Menu Item Reviews</h1>
+        <MenuItemReviewTable reviews={reviews} currentUser={currentUser} />
       </div>
     </BasicLayout>
   );
