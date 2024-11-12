@@ -48,7 +48,7 @@ jobs:
             echo "Contents of $GITHUB_OUTPUT:"
             cat "$GITHUB_OUTPUT"
           fi
-  # This job extracts the team name from the repository name
+# This job extracts the team name from the repository name
   # The team name is used to find the project ID for the team
   # It does this by extracting the last 6 characters of the repository name
   # Then sets the team name as an output for the next job
@@ -326,8 +326,8 @@ jobs:
             $row = "| " + (LeftAlignText $assignee 17) + "|"
             foreach ($column in $columns) {
               $count = if ($assignees[$assignee].ContainsKey($column)) { "$($assignees[$assignee][$column])" } else { "0" }
-              $leftAlignedCount = "   " + (LeftAlignText $count 2)  # Adding 3 spaces before the value
-              $row += " $leftAlignedCount|"
+              $leftAlignedCount = printf "%4s" $count
+              $row += " $leftAlignedCount |"
             }
             $table += "$row`n"
           }
@@ -372,7 +372,6 @@ jobs:
       #The ASCII table content is also printed for debugging purposes
       - name: Debug Environment Variables
         run: |
-          echo "access_token=${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}"
           echo "TEAM_TO_CHANNEL: ${{ env.TEAM_TO_CHANNEL }}"
           echo "TEAM: ${{ env.TEAM }}"
           echo "ORG_NAME: ${{ env.ORG_NAME }}"
