@@ -8,24 +8,23 @@ on:
   pull_request:
     paths: [src/**, pom.xml, lombok.config]
   push:
-    branches: [ main ]
+    branches: [main]
     paths: [src/**, pom.xml, lombok.config]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    
+
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up Java (version from .java-version file)
-      uses: actions/setup-java@v3
-      with:
-         distribution: semeru # See: https://github.com/actions/setup-java#supported-distributions
-         java-version-file: ./.java-version
-  
-    - name: Build with Maven
-      env:
-        TEST_PROPERTIES: ${{ secrets.TEST_PROPERTIES }}
-      run: mvn -B test 
-      
+      - uses: actions/checkout@v4
+      - name: Set up Java (version from .java-version file)
+        uses: actions/setup-java@v3
+        with:
+          distribution: semeru # See: https://github.com/actions/setup-java#supported-distributions
+          java-version-file: ./.java-version
+
+      - name: Build with Maven
+        env:
+          TEST_PROPERTIES: ${{ secrets.TEST_PROPERTIES }}
+        run: mvn -B test

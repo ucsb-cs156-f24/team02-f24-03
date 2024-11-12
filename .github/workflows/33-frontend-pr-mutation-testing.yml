@@ -1,7 +1,7 @@
 name: "33-frontend-pr-mutation-testing: Stryker JS Mutation Testing (JavaScript/Jest)"
 
 # This workflow pulls incremental mutation testing results
-# if they exist for the given PR, and then 
+# if they exist for the given PR, and then
 # uses those incremental results to run mutation testing faster.
 # Reference: https://stryker-mutator.io/docs/stryker-js/incremental/
 
@@ -18,12 +18,11 @@ jobs:
       destination: frontend/reports/mutation
 
     steps:
-      
       - uses: szenius/set-timezone@v2.0
         with:
           timezoneLinux: "America/Los_Angeles"
       - uses: actions/checkout@v4
-        with: 
+        with:
           fetch-depth: 0
 
       - name: Get PR number
@@ -37,18 +36,18 @@ jobs:
             pr_number="main"
           fi
           echo "pr_number=${pr_number}" >> "$GITHUB_ENV"
-          
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-            node-version-file: './frontend/package.json'
-            cache: 'npm'
-            cache-dependency-path: frontend/package-lock.json
+          node-version-file: "./frontend/package.json"
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
 
       - name: Create directory in case it doesn't exist
         run: |
           mkdir -p frontend/reports/mutation
-    
+
       - run: npm ci
         working-directory: ./frontend
 
@@ -62,18 +61,18 @@ jobs:
           path: frontend/history/stryker-incremental-${{env.pr_number}}.json
       - name: Run stryker on changed files
         id: changed-files
-        run: | 
-            git diff --name-only -r origin/main HEAD |              # get changed files in PR
-            grep "\.js" |                                           # remove non .js files from list
-            sed 's|\(.*\)tests\(.*\)\.test.js|\1main\2.js|' |       # alters test files to main files to account for changed tests
-            grep -v "\.stories\.js" |                               # remove .stories.js files from list
-            grep "src/main/" |                                      # remove files outside of src/main
-            sed 's|frontend/||' |                                   # remove 'frontend/' from file paths
-            sort -u |                                               # remove duplicates
-            xargs -I{} sh -c '[ -f "{}" ] && echo "{}"' |           # check if file exists
-            xargs printf '%s,' |                                    # convert to comma separated list
-            sed 's/.$//' |                                          # remove trailing comma
-            xargs -r npx stryker run --mutate                       # run stryker on changed files
+        run: |
+          git diff --name-only -r origin/main HEAD |              # get changed files in PR
+          grep "\.js" |                                           # remove non .js files from list
+          sed 's|\(.*\)tests\(.*\)\.test.js|\1main\2.js|' |       # alters test files to main files to account for changed tests
+          grep -v "\.stories\.js" |                               # remove .stories.js files from list
+          grep "src/main/" |                                      # remove files outside of src/main
+          sed 's|frontend/||' |                                   # remove 'frontend/' from file paths
+          sort -u |                                               # remove duplicates
+          xargs -I{} sh -c '[ -f "{}" ] && echo "{}"' |           # check if file exists
+          xargs printf '%s,' |                                    # convert to comma separated list
+          sed 's/.$//' |                                          # remove trailing comma
+          xargs -r npx stryker run --mutate                       # run stryker on changed files
         working-directory: ./frontend
 
       - name: Set path for github pages deploy when there is a PR num
@@ -86,7 +85,7 @@ jobs:
           fi
           echo "prefix=${prefix}"
           echo "prefix=${prefix}" >> "$GITHUB_ENV"
-      
+
       - name: Deploy 🚀
         if: always() # always upload artifacts, even if tests fail
         uses: JamesIves/github-pages-deploy-action@v4
