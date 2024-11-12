@@ -48,7 +48,8 @@ jobs:
             echo "Contents of $GITHUB_OUTPUT:"
             cat "$GITHUB_OUTPUT"
           fi
-# This job extracts the team name from the repository name
+        
+  # This job extracts the team name from the repository name
   # The team name is used to find the project ID for the team
   # It does this by extracting the last 6 characters of the repository name
   # Then sets the team name as an output for the next job
@@ -219,6 +220,9 @@ jobs:
               Write-Host "Processing column: $column"
               if ($null -ne $column) {
                 $assignees = $item.content.assignees.nodes | Select-Object -ExpandProperty login
+                if ($assignees.Count -eq 0) {
+                  $assignees = @("UNASSIGNED")
+                }
                 foreach ($assignee in $assignees) {
                   Write-Host "Processing assignee: $assignee"
                   if (-not $issueCounts.ContainsKey($column)) {
@@ -284,14 +288,20 @@ jobs:
           }
           $issueCounts = $issueCounts | ConvertFrom-Json
 
-          # Collect all assignees
-          $assignees = @{ }
+          # Collect all assignees and track unassigned issues
+          $assignees = @{}
+          $unassignedCounts = @{}
           foreach ($column in $issueCounts.PSObject.Properties.Name) {
+            $unassignedCounts[$column] = 0
             foreach ($assignee in $issueCounts.$column.PSObject.Properties.Name) {
-              if (-not $assignees.ContainsKey($assignee)) {
-                $assignees[$assignee] = @{ }
+              if ($assignee -eq "UNASSIGNED") {
+                $unassignedCounts[$column] += $issueCounts.$column.$assignee
+              } else {
+                if (-not $assignees.ContainsKey($assignee)) {
+                  $assignees[$assignee] = @{}
+                }
+                $assignees[$assignee][$column] = $issueCounts.$column.$assignee
               }
-              $assignees[$assignee][$column] = $issueCounts.$column.$assignee
             }
           }
 
@@ -299,7 +309,7 @@ jobs:
           $columns = $env:columns -split ", "
           $columnWidths = @(18, 3, 3, 3, 3)  # Fixed widths for each column
 
-          # Left align the text within each cell with manual adjustments
+          # Left align the text within each cell
           function LeftAlignText($text, $width) {
             $text = [string]$text  # Ensure $text is treated as a string
             $padding = " " * [math]::Max(0, $width - $text.Length)
@@ -311,6 +321,7 @@ jobs:
           foreach ($column in $columns) {
             $header += " " + $column.Substring(0, 4) + " |"
           }
+
 
           # Define the separator with exact dash counts for each column
           $separator = "|------------------|"
@@ -331,6 +342,15 @@ jobs:
             }
             $table += "$row`n"
           }
+
+          # Add the unassigned row
+          $unassignedRow = "| " + (LeftAlignText "UNASSIGNED" 17) + "|"
+          foreach ($column in $columns) {
+            $unassignedCount = $unassignedCounts[$column]
+            $leftAlignedUnassignedCount = printf "%4s" $unassignedCount
+            $unassignedRow += " $leftAlignedUnassignedCount |"
+          }
+          $table += "$unassignedRow`n"
 
           Write-Host "ASCII Table:`n$table"
           $table | Out-File ascii_table.txt
