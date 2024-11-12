@@ -6,9 +6,9 @@ env:
   PREV_ASSIGNMENT: team01
   ASN_LINK: https://ucsb-cs156.github.io/f24/lab/team02
   STARTER_REPO: "ucsb-cs156-f24/STARTER-team02"
-  FRONTEND_URL: "{ \"UCSBDiningCommonsMenuItem\": \"diningcommonsmenuitem\", \"UCSBOrganization\": \"ucsborganization\", \"RecommendationRequest\": \"recommendationrequest\", \"MenuItemReview\": \"menuitemreview\", \"HelpRequest\": \"helprequest\", \"Articles\": \"articles\" }"
-  FIXTURES: "{ \"UCSBDiningCommonsMenuItem\": \"ucsbDiningCommonsMenuItem\", \"UCSBOrganization\": \"ucsbOrganization\", \"RecommendationRequest\": \"recommendationRequest\", \"MenuItemReview\": \"menuItemReview\", \"HelpRequest\": \"helpRequest\", \"Articles\": \"articles\" }"
-  LABEL_COLOR: "{ \"UCSBDiningCommonsMenuItem\": \"ff0000\", \"UCSBOrganization\": \"00ff00\", \"RecommendationRequest\": \"0000ff\", \"MenuItemReview\": \"ff00ff\", \"HelpRequest\": \"ffff00\", \"Articles\": \"00ffff\" }"
+  FRONTEND_URL: '{ "UCSBDiningCommonsMenuItem": "diningcommonsmenuitem", "UCSBOrganization": "ucsborganization", "RecommendationRequest": "recommendationrequest", "MenuItemReview": "menuitemreview", "HelpRequest": "helprequest", "Articles": "articles" }'
+  FIXTURES: '{ "UCSBDiningCommonsMenuItem": "ucsbDiningCommonsMenuItem", "UCSBOrganization": "ucsbOrganization", "RecommendationRequest": "recommendationRequest", "MenuItemReview": "menuItemReview", "HelpRequest": "helpRequest", "Articles": "articles" }'
+  LABEL_COLOR: '{ "UCSBDiningCommonsMenuItem": "ff0000", "UCSBOrganization": "00ff00", "RecommendationRequest": "0000ff", "MenuItemReview": "ff00ff", "HelpRequest": "ffff00", "Articles": "00ffff" }'
   REPO_FILE: https://github.com/${{github.repository}}/blob/main
   NVM_USE: "`nvm use 20.17.0`"
   SAMPLE_TEAM: f24-05
@@ -23,11 +23,11 @@ jobs:
       - name: Delete label setup
         continue-on-error: true
         run: |
-            gh api \
-                  --method DELETE \
-                  -H "Accept: application/vnd.github+json" \
-                  -H "X-GitHub-Api-Version: 2022-11-28" \
-                  /repos/${{github.repository}}/labels/setup 
+          gh api \
+                --method DELETE \
+                -H "Accept: application/vnd.github+json" \
+                -H "X-GitHub-Api-Version: 2022-11-28" \
+                /repos/${{github.repository}}/labels/setup
       - name: Add Label setup
         continue-on-error: true
         run: |
@@ -38,8 +38,8 @@ jobs:
             /repos/${{github.repository}}/labels \
             -f name='setup' \
             -f description='One time tasks to divide among all team members' \
-            -f color='dddddd' 
-            
+            -f color='dddddd'
+
       - name: Add table to README.md
         uses: dacbd/create-issue-action@main
         with:
@@ -80,7 +80,7 @@ jobs:
             # Details
 
             See the file  [`docs/github-pages.md`](/${{env.STARTER_REPO}}/blob/main/docs/github-pages.md) in the repo for details
-      
+
       - name: Set up Team prod deployment
         uses: dacbd/create-issue-action@main
         with:
@@ -140,7 +140,7 @@ jobs:
                   login with OAuth and see that they have admin privileges.
             - [ ] HTTPS is configured for that app (see: <https://ucsb-cs156.github.io/topics/dokku/enabling_https.html>)
                   
-           
+
             # Details
 
             Set up a separate Dokku instance for QA.  Adapt the instructions from 
@@ -149,7 +149,6 @@ jobs:
             any branch to this instance. You typically do this when you have a PR
             that is being code reviewed.  You can use the your team's Slack channel
             to coordinate who is deploying what to QA at any given time.
-
 
       - name: Adjust links in README.md
         uses: dacbd/create-issue-action@main
@@ -163,17 +162,16 @@ jobs:
             - [ ] The title of the README.md file is changed from <tt>STARTER-${{env.ASSIGNMENT}}</tt> to the name of the app (e.g. <tt>${{env.ASSIGNMENT}}-${{env.SAMPLE_TEAM}}</tt>)
             - [ ] The README.md file is updated with links to the prod and qa instances on dokku.
             - [ ] The README.md file is updated with any other links as specified in the instructions.
-            
+
             ## Details
-            
+
             See the README.md file in the repo for details.
-  
-   
+
       - name: Submit for Grading
         uses: dacbd/create-issue-action@main
         with:
           token: ${{ github.token }}
-          title:  Submit for Grading
+          title: Submit for Grading
           labels: "setup"
           labels: "setup"
           body: |
@@ -188,14 +186,14 @@ jobs:
             staff to review it for a grade.
 
             ## Acceptance criteria
-  
+
             - [ ] All PRs have been code reviewed and merged to main
             - [ ] All issues are in the done column 
             - [ ] The `main` branch (after all PRs merged) has been reployed to the dokku instance with the <tt>dokku git:sync ${{env.ASSIGNMENT}} <i>url</i> main</tt> and <tt>dokku ps:rebuild ${{env.ASSIGNMENT}}</tt> commands
             - [ ] The assignment has been submitted on Canvas
-            
+
             ## Details
-            
+
             See the assignment description at ${{env.ASN_LINK}} for details.
 
   createIssues:
@@ -227,7 +225,7 @@ jobs:
               --method DELETE \
               -H "Accept: application/vnd.github+json" \
               -H "X-GitHub-Api-Version: 2022-11-28" \
-              /repos/${{github.repository}}/labels/${{env.name}} 
+              /repos/${{github.repository}}/labels/${{env.name}}
       - name: Create Label
         env:
           token: ${{ github.token }}
@@ -241,7 +239,7 @@ jobs:
               /repos/${{github.repository}}/labels \
               -f name='${{env.name}}' \
               -f description='${{env.ASSIGNMENT}} issues for ${{env.name}}' \
-              -f color='${{env.color}}' 
+              -f color='${{env.color}}'
 
       - name: Create personal dokku dev deployment
         uses: dacbd/create-issue-action@main
@@ -262,7 +260,7 @@ jobs:
             The team member that takes on ${{env.name}} as their database table
             should use this issue to track creating their personal dokku
             deployment.
-            
+
             # Acceptance Criteria:
             - [ ] An app named <tt>${{env.ASSIGNMENT}}-YOURGITHUBID-dev</tt> is created on this team's dokku server, where
                   `YOURGITHUBID` is your github id.
@@ -326,7 +324,7 @@ jobs:
             - [ ] Do the same for your database migration file for $${{env.name}}, under `/src/main/resources/db/migration/changes`       
             - [ ] With these files in place, visit swagger and make sure 
                   the CRUD operations for `${{env.name}}` are working properly.
-            
+
             # What to do next
 
             **Make a PR**: When you've met all of the acceptance criteria, do a PR for this branch,
@@ -344,7 +342,7 @@ jobs:
             Then ask for a team member to review your PR.
 
             Finally: drag this issue from "In Progress" to "In Review".
-      
+
             **Review Others' PRs**: Next, see if there are any PRs that need to be code reviewed and merged.  Unless you are the
             first person on your team to complete a PR, there likely is at least one.
             See: 
@@ -352,7 +350,7 @@ jobs:
             * [Performing Code Reviews on Github](https://ucsb-cs156.github.io/topics/code_reviews/code_reviews_github.html)
 
             **Start your next issue**: Then, find the issue for "Create fixtures for `${{env.name}}`" on the Kanban board in the ToDo column.
-            
+
             * Assign it to yourself
             * Drag into "In Progress"
             * Create a new branch, starting from the branch for the issue you just finished.
@@ -393,7 +391,7 @@ jobs:
             this issue.
 
             Then ask for a team member to review your PR, and drag this issue from "In Progress" to "In Review".
-      
+
             **Review Others' PRs**: Next, see if there are any PRs that need to be code reviewed and merged.  Unless you are the
             first person on your team to complete a PR, there likely is at least one.
             See: 
@@ -401,7 +399,7 @@ jobs:
             * [Performing Code Reviews on Github](https://ucsb-cs156.github.io/topics/code_reviews/code_reviews_github.html)
 
             **Start your next issue**: Then, find the issue for "Form Component for `${{env.name}}` plus tests" on the Kanban board in the ToDo column.
-            
+
             * Assign it to yourself
             * Drag into "In Progress"
             * Create a new branch, starting from the branch for the issue you just finished.
@@ -506,7 +504,7 @@ jobs:
 
             * It also illustrates how we can create a component that can be reused, in this
               case for both creating and editing a database record.
-            
+
             # Reminders (all from `frontend` directory):
 
             * Always start by setting your node version with ${{env.NVM_USE}}
@@ -516,17 +514,16 @@ jobs:
             * Check linting locally: `npx eslint --fix .`
             * Check mutation coverage locally (slow): `npx stryker run`
             * Check mutation coverage of single file (faster): `npx stryker run -m src/main/components/${{env.name}}/${{env.name}}Form.js`
- 
+
             # What to do next
 
             Do a PR, following all of the usual steps (title, description, `Closes #n` text,
             dragging issue to "In Review", requesting reviewers).
 
             Check to see if any fellow team members PRs need to be reviewed.
-            
+
             Then, assign yourself the issue "Table Component for `${{env.name}}` plus tests"
             following all the usual steps (assign to self, drag to "In Progress", start new branch.)
-
 
       - name: Table Component
         uses: dacbd/create-issue-action@main
@@ -595,11 +592,10 @@ jobs:
             dragging issue to "In Review", requesting reviewers).
 
             Check to see if any fellow team members PRs need to be reviewed.
-            
+
             Then, assign yourself the issue "Copy Placeholders for `${{env.name}}` pages; add to App.js/AppNavbar.js"
 
             Follow all the usual steps (assign to self, drag to "In Progress", start new branch.)
-
 
       - name: Copy Placeholder pages; add to App.js/AppNavbar.js
         uses: dacbd/create-issue-action@main
@@ -619,7 +615,7 @@ jobs:
             # Discussion
 
             In this issue, you'll set up placeholders for the three pages you are adding to the app.  
-            
+
             These placeholder components are temporary, but they are necessary so that you can 
             add routes to the pages in `frontend/src/App.js` and add a link to the `/${{env.frontend_url}}` 
             name in to the Navigation Bar of the app in `frontend/src/components/AppNavbar.js`.
@@ -632,9 +628,9 @@ jobs:
             changes to `App.js` and `AppNavbar.js` until at least some placeholder 
             component for the pages exists, and we can't really test the new pages unless they 
             are routed to in the app.  The placeholder solves this ["chicken/egg" problem](https://en.wikipedia.org/wiki/Chicken_or_the_egg).
-            
+
             # Acceptance Criteria
-            
+
             - [ ] On the main navigation bar, there is a link to `${{env.name}}`
                   that takes the user to the `${{env.name}}IndexPage` page (a placeholder for now) 
                   at the url `/${{env.frontend_url}}`.
@@ -667,7 +663,7 @@ jobs:
             In the three page components, typically you will only need to change the 
             name of the default export, changing `Placeholder` to `${{env.name}}`
 
-            
+
             ```js
             export default function PlaceholderCreatePage() {
             ```
@@ -706,7 +702,7 @@ jobs:
             }
             ```
             # Reminders (all from `frontend` directory):
-            
+
             * Always start by setting your node version with ${{env.NVM_USE}}
             * To run storybook locally: `npm run storybook`.
             * To run tests locally: `npm test`.
@@ -714,13 +710,12 @@ jobs:
             * Check linting locally: `npx eslint --fix .`
             * Check mutation coverage locally (slow): `npx stryker run`
             * Check mutation coverage of single file (faster): `npx stryker run -m src/main/components/Nav/AppNavbar.js`
-            
+
             # What to do next
 
             * Do a PR (following the usual steps).
             * Check for other PRs 
             * Start work on "Create Page for `${{env.name}}` plus tests and stories" (following the usual steps for a new issue)
-
 
       - name: Create Page
         uses: dacbd/create-issue-action@main
@@ -801,7 +796,7 @@ jobs:
             * Do a PR (following the usual steps).
             * Check for other PRs 
             * Start work on "Index Page for `${{env.name}}` plus tests and stories"(following the usual steps for a new issue)
-            
+
       - name: Index Page
         uses: dacbd/create-issue-action@main
         env:
@@ -888,19 +883,19 @@ jobs:
             * Do a PR (following the usual steps).
             * Check for other PRs 
             * Start work on "Edit Page for `${{env.name}}` plus tests and stories" (following the usual steps for a new issue)
-                         
+
       - name: Edit Page
         uses: dacbd/create-issue-action@main
         env:
           name: ${{ matrix.api }}
           frontend_url: ${{ fromJSON(env.FRONTEND_URL)[matrix.api] }}
-          
+
         with:
           token: ${{ github.token }}
           labels: "${{env.name}}"
           title: Edit Page for `${{env.name}}` plus tests and stories
           body: |
-      
+
             # Dependencies
 
             Complete the following issues first:
@@ -941,7 +936,7 @@ jobs:
             - [ ] Replace the placeholder content in `${{env.name}}EditPage.js`
                   with appropriate content from `RestaurantEditPage.js` and/or
                   `UCSBDatesEditPage.js`. Be sure to get the API endpoint names correct for your `${{env.name}}` table.
-            
+
             - [ ] Replace the placeholder content in `${{env.name}}EditPage.test.js`
                   with appropriate content from `RestaurantEditPage.test.js` and/or
                   `UCSBDatesEditPage.test.js`. Be sure to get the API endpoint names correct for your `${{env.name}}` table.
@@ -949,7 +944,7 @@ jobs:
             - [ ] Under `frontend/src/stories/pages/${{env.name}}/` create a file
                   called `${{env.name}}EditPage.stories.js` modelled after 
                   the files `RestaurantEditPage.stories.js` and/or `UCSBDatesEditPage.stories.js`.
-            
+
             # Reminders (all from `frontend` directory):
 
             * Always start by setting the node version with ${{env.NVM_USE}}
@@ -966,4 +961,3 @@ jobs:
             operations for `${{env.name}}`.  Now, please give your full attention to 
             helping others on your team to complete the sprint, so that the team
             is ready to submit on Canvas by the deadline.
-            
