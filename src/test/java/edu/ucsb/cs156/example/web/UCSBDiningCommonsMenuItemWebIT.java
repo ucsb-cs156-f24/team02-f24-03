@@ -21,10 +21,10 @@ public class UCSBDiningCommonsMenuItemWebIT extends WebTestCase {
     public void admin_user_can_create_edit_delete_menuitem() throws Exception {
         setupUser(true);
 
-        page.getByText("UCSBDiningCommonsMenuItems").click();
+        page.getByText("UCSB Dining Commons Menu Item").click();
 
-        page.getByText("Create UCSBDiningCommonsMenuItem").click();
-        assertThat(page.getByText("Create New UCSBDiningCommonsMenuItem")).isVisible();
+        page.getByText("Create UCSB Dining Commons Menu Item").click();
+        assertThat(page.getByText("Create New UCSB Dining Commons Menu Item")).isVisible();
         page.getByTestId("UCSBDiningCommonsMenuItemForm-diningCommonsCode").fill("dlg");
         page.getByTestId("UCSBDiningCommonsMenuItemForm-name").fill("salad");
         page.getByTestId("UCSBDiningCommonsMenuItemForm-station").fill("entrees");
@@ -34,7 +34,7 @@ public class UCSBDiningCommonsMenuItemWebIT extends WebTestCase {
                 .hasText("entrees");
 
         page.getByTestId("UCSBDiningCommonsMenuItemTable-cell-row-0-col-Edit-button").click();
-        assertThat(page.getByText("Edit UCSBDiningCommonsMenuItem")).isVisible();
+        assertThat(page.getByText("Edit UCSB Dining Commons Menu Item")).isVisible();
         page.getByTestId("UCSBDiningCommonsMenuItemForm-station").fill("sides");
         page.getByTestId("UCSBDiningCommonsMenuItemForm-submit").click();
 
@@ -49,9 +49,9 @@ public class UCSBDiningCommonsMenuItemWebIT extends WebTestCase {
     public void regular_user_cannot_create_menuitem() throws Exception {
         setupUser(false);
 
-        page.getByText("UCSBDiningCommonsMenuItems").click();
+        page.getByText("UCSB Dining Commons Menu Item").click();
 
-        assertThat(page.getByText("Create UCSBDiningCommonsMenuItem")).not().isVisible();
+        assertThat(page.getByText("Create UCSB Dining Commons Menu Item")).not().isVisible();
         assertThat(page.getByTestId("UCSBDiningCommonsMenuItemTable-cell-row-0-col-name")).not().isVisible();
     }
 }
