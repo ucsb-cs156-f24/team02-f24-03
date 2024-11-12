@@ -149,7 +149,6 @@ describe("HelpRequestIndexPage tests", () => {
       .reply(200, "HelpRequest with id 1 was deleted");
 
     // act
-
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
