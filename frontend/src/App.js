@@ -15,6 +15,10 @@ import UCSBOrganizationIndexPage from "main/pages/UCSBOrganization/UCSBOrganizat
 import UCSBOrganizationCreatePage from "main/pages/UCSBOrganization/UCSBOrganizationCreatePage";
 import UCSBOrganizationEditPage from "main/pages/UCSBOrganization/UCSBOrganizationEditPage";
 
+import UCSBOrganizationIndexPage from "main/pages/UCSBOrganization/UCSBOrganizationIndexPage";
+import UCSBOrganizationCreatePage from "main/pages/UCSBOrganization/UCSBOrganizationCreatePage";
+import UCSBOrganizationEditPage from "main/pages/UCSBOrganization/UCSBOrganizationEditPage";
+
 import RecommendationRequestCreatePage from "main/pages/RecommendationRequest/RecommendationRequestCreatePage";
 import RecommendationRequestEditPage from "main/pages/RecommendationRequest/RecommendationRequestEditPage";
 import RecommendationRequestIndexPage from "main/pages/RecommendationRequest/RecommendationRequestIndexPage";
@@ -143,7 +147,7 @@ function App() {
           <>
             <Route
               exact
-              path="/ucsborganization"
+              path="/ucsborganizations"
               element={<UCSBOrganizationIndexPage />}
             />
           </>
@@ -152,7 +156,7 @@ function App() {
           <>
             <Route
               exact
-              path="/ucsborganization/edit/:id"
+              path="/ucsborganizations/edit/:id"
               element={<UCSBOrganizationEditPage />}
             />
             <Route
