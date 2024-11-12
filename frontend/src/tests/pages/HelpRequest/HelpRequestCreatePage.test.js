@@ -75,7 +75,6 @@ describe("HelpRequestCreatePage tests", () => {
     };
 
     axiosMock.onPost("/api/helprequests/post").reply(202, helpRequest);
-
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
