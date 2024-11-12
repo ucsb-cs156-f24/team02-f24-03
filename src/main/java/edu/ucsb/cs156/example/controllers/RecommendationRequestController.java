@@ -41,13 +41,13 @@ public class RecommendationRequestController extends ApiController {
     @Autowired
 
     /**
-     * List all Recommendation Requests
+     * List all recommendationRequests
      * 
-     * @return an iterable of Recommendation Request
+     * @return an iterable of recommendationRequest
      */
     RecommendationRequestRepository recommendationRequestRepository;
 
-    @Operation(summary= "List all recommendation requests")
+    @Operation(summary= "List all recommendationRequests")
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("/all")
     public Iterable<RecommendationRequest> allRecommendationRequests() {
@@ -56,9 +56,9 @@ public class RecommendationRequestController extends ApiController {
     }
 
     /**
-     * Get a single recommendation request by id
+     * Get a single recommendationRequest by id
      * 
-     * @param id the id of the recommendation request
+     * @param id the id of the recommendationRequest
      * @return a RecommendationRequest
      */
     @Operation(summary= "Get a single date")
@@ -73,7 +73,7 @@ public class RecommendationRequestController extends ApiController {
     }
 
     /**
-     * Create a new recommendation request
+     * Create a new recommendationRequest
      * 
      * @param requesterEmail  email of the requester
      * @param professorEmail  email of the professor
@@ -83,7 +83,7 @@ public class RecommendationRequestController extends ApiController {
      * @param done            completed or no 
      * @return the saved recommendationRequest
      */
-    @Operation(summary= "Create a new recommendation request")
+    @Operation(summary= "Create a new recommendationRequest")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/post")
     public RecommendationRequest postRecommendationRequest(
