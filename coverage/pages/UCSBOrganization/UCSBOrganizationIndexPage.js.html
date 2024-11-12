@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for pages/Restaurants/RestaurantIndexPage.js</title>
+    <title>Code coverage report for pages/UCSBOrganization/UCSBOrganizationIndexPage.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">pages/Restaurants</a> RestaurantIndexPage.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">pages/UCSBOrganization</a> UCSBOrganizationIndexPage.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -110,7 +110,10 @@
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -157,25 +160,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
 import { useBackend } from "main/utils/useBackend";
 &nbsp;
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import RestaurantTable from "main/components/Restaurants/RestaurantTable";
+import UCSBOrganizationTable from "main/components/UCSBOrganization/UCSBOrganizationTable";
 import { useCurrentUser, hasRole } from "main/utils/currentUser";
 import { Button } from "react-bootstrap";
 &nbsp;
-export default function RestaurantIndexPage() {
+export default function UCSBOrganizationIndexPage() {
   const currentUser = useCurrentUser();
 &nbsp;
   const {
-    data: restaurants,
+    data: organizations,
     error: _error,
     status: _status,
   } = useBackend(
     // Stryker disable next-line all : don't test internal caching of React Query
-    ["/api/restaurants/all"],
-    { method: "GET", url: "/api/restaurants/all" },
+    ["/api/ucsborganization/all"],
+    { method: "GET", url: "/api/ucsborganization/all" },
     // Stryker disable next-line all : don't test default value of empty list
     [],
   );
@@ -185,10 +191,10 @@ export default function RestaurantIndexPage() {
       return (
         &lt;Button
           variant="primary"
-          href="/restaurants/create"
+          href="/ucsborganization/create"
           style={{ float: "right" }}
         &gt;
-          Create Restaurant
+          Create UCSB Organization
         &lt;/Button&gt;
       );
     }
@@ -198,8 +204,11 @@ export default function RestaurantIndexPage() {
     &lt;BasicLayout&gt;
       &lt;div className="pt-2"&gt;
         {createButton()}
-        &lt;h1&gt;Restaurants&lt;/h1&gt;
-        &lt;RestaurantTable restaurants={restaurants} currentUser={currentUser} /&gt;
+        &lt;h1&gt;UCSB Organizations&lt;/h1&gt;
+        &lt;UCSBOrganizationTable
+          organizations={organizations}
+          currentUser={currentUser}
+        /&gt;
       &lt;/div&gt;
     &lt;/BasicLayout&gt;
   );
