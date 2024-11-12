@@ -26,7 +26,7 @@ Empty.parameters = {
         status: 200,
       });
     }),
-    http.get("/api/ucsborganizations/all", () => {
+    http.get("/api/ucsborganization/all", () => {
       return HttpResponse.json([], { status: 200 });
     }),
   ],
@@ -42,7 +42,7 @@ ThreeItemsOrdinaryUser.parameters = {
     http.get("/api/systemInfo", () => {
       return HttpResponse.json(systemInfoFixtures.showingNeither);
     }),
-    http.get("/api/ucsborganizations/all", () => {
+    http.get("/api/ucsborganization/all", () => {
       return HttpResponse.json(ucsbOrganizationFixtures.threeOrganizations);
     }),
   ],
@@ -58,10 +58,10 @@ ThreeItemsAdminUser.parameters = {
     http.get("/api/systemInfo", () => {
       return HttpResponse.json(systemInfoFixtures.showingNeither);
     }),
-    http.get("/api/ucsborganizations/all", () => {
+    http.get("/api/ucsborganization/all", () => {
       return HttpResponse.json(ucsbOrganizationFixtures.threeOrganizations);
     }),
-    http.delete("/api/ucsborganizations", () => {
+    http.delete("/api/ucsborganization", () => {
       return HttpResponse.json(
         { message: "Organization deleted successfully" },
         { status: 200 },

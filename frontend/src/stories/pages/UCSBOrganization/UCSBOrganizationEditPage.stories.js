@@ -26,15 +26,15 @@ Default.parameters = {
         status: 200,
       });
     }),
-    http.get("/api/ucsbOrganizations", () => {
+    http.get("/api/ucsborganization", () => {
       return HttpResponse.json(ucsbOrganizationFixtures.threeOrganizations[0], {
         status: 200,
       });
     }),
-    http.put("/api/ucsbOrganizations", () => {
+    http.put("/api/ucsborganization", () => {
       return HttpResponse.json({}, { status: 200 });
     }),
-    http.put("/api/ucsbOrganizations", (req) => {
+    http.put("/api/ucsborganization", (req) => {
       window.alert("PUT: " + req.url + " and body: " + req.body);
       return HttpResponse.json({}, { status: 200 });
     }),
