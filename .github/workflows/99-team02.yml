@@ -69,6 +69,7 @@ jobs:
           token: ${{ github.token }}
           title: Set up Github Pages
           labels: "setup"
+          labels: "setup"
           body: |
             # Acceptance Criteria:
             - [ ] Github Pages is active, using the `gh-pages` branch and the root directory
@@ -86,20 +87,25 @@ jobs:
           token: ${{ github.token }}
           title: Set up Team prod deployment
           labels: "setup"
+          labels: "setup"
           body: |
             # Acceptance Criteria:
             - [ ] An app named <tt>${{env.ASSIGNMENT}}</tt> is created on this team's dokku server.
             - [ ] An database is configured for that app (see: <https://ucsb-cs156.github.io/topics/dokku/postgres_database.html>)
             - [ ] The ADMIN_EMAILS are configured for that app.
                   * You should find the ones you need in a pinned post on your team's Slack channel.
-                  * Instructions for configuring the variable are here: <https://ucsb-cs156.github.io/topics/dokku/environment_variables.html>
+                  * Instructions for configuring the variable are here: 
+                    <https://ucsb-cs156.github.io/topics/dokku/environment_variables.html>
             - [ ] Google OAuth is configured for that app.
-                  * Instructions for configuring OAuth credentials are here: <https://ucsb-cs156.github.io/topics/oauth/oauth_google_setup.html>
+                  * Instructions for configuring OAuth credentials are here: 
+                    <https://ucsb-cs156.github.io/topics/oauth/oauth_google_setup.html>
                   * Then you need to use the instructions here to configure the environment variables `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`: <https://ucsb-cs156.github.io/topics/dokku/environment_variables.html>
             - [ ] HTTPS is configured for that app (see: <https://ucsb-cs156.github.io/topics/dokku/enabling_https.html>)
             - [ ] The main branch is deployed on Dokku at, for example,
                   <https://${{env.ASSIGNMENT}}.dokku-xx.cs.ucsb.edu> (substituting your
                   own Dokku instances for xx).
+            - [ ] Everyone on the team, and the instructor and TAs, are all able to 
+                  login with OAuth and see that they have admin privileges.
             - [ ] Everyone on the team, and the instructor and TAs, are all able to 
                   login with OAuth and see that they have admin privileges.
 
@@ -113,6 +119,7 @@ jobs:
           token: ${{ github.token }}
           title: Set up Team qa deployment
           labels: "setup"
+          labels: "setup"
           body: |
             # Acceptance Criteria:
 
@@ -120,9 +127,11 @@ jobs:
             - [ ] An database is configured for that app (see: <https://ucsb-cs156.github.io/topics/dokku/postgres_database.html>)
             - [ ] The ADMIN_EMAILS are configured for that app.
                   * You should find the ones you need in a pinned post on your team's Slack channel.
-                  * Instructions for configuring the variable are here: <https://ucsb-cs156.github.io/topics/dokku/environment_variables.html>
+                  * Instructions for configuring the variable are here: 
+                    <https://ucsb-cs156.github.io/topics/dokku/environment_variables.html>
             - [ ] Google OAuth is configured for that app.
-                  * Instructions for configuring OAuth credentials are here: <https://ucsb-cs156.github.io/topics/oauth/oauth_google_setup.html>
+                  * Instructions for configuring OAuth credentials are here: 
+                    <https://ucsb-cs156.github.io/topics/oauth/oauth_google_setup.html>
                   * Then you need to use the instructions here to configure the environment variables `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`: <https://ucsb-cs156.github.io/topics/dokku/environment_variables.html>
             - [ ] The main branch is deployed on Dokku at, for example,
                   <https://${{env.ASSIGNMENT}}-qa.dokku-xx.cs.ucsb.edu> (substituting your
@@ -147,6 +156,7 @@ jobs:
           token: ${{ github.token }}
           title: Adjust title and links in README.md
           labels: "setup"
+          labels: "setup"
           body: |
             ## Acceptance criteria
             - [ ] The title of the README.md file is changed from <tt>STARTER-${{env.ASSIGNMENT}}</tt> to the name of the app (e.g. <tt>${{env.ASSIGNMENT}}-${{env.SAMPLE_TEAM}}</tt>)
@@ -163,7 +173,13 @@ jobs:
           token: ${{ github.token }}
           title: Submit for Grading
           labels: "setup"
+          labels: "setup"
           body: |
+
+            This issue should be the very *last* one that the team drags into the "done" column;
+            it signifies that the sprint is complete, and that the project is ready for the
+            staff to review it for a grade.
+
 
             This issue should be the very *last* one that the team drags into the "done" column;
             it signifies that the sprint is complete, and that the project is ready for the
