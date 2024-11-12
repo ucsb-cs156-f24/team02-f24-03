@@ -20,10 +20,12 @@ jest.mock("react-toastify", () => {
   };
 });
 
+
 describe("HelpRequestIndexPage tests", () => {
   const axiosMock = new AxiosMockAdapter(axios);
 
   const testId = "HelpRequestTable";
+
 
   const setupUserOnly = () => {
     axiosMock.reset();
@@ -149,6 +151,7 @@ describe("HelpRequestIndexPage tests", () => {
       .reply(200, "HelpRequest with id 1 was deleted");
 
     // act
+
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
