@@ -60,7 +60,6 @@ jobs:
         run: |
           echo "pr_number=${{needs.get-pr-num.outputs.pr_number}}"
           echo "branch_name=${{needs.get-pr-num.outputs.branch_name}}"
-
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
@@ -84,6 +83,3 @@ jobs:
           folder: target/site/apidocs # The folder where mvn javadoc:javadoc outputs the javadoc files
           clean: true # Automatically remove deleted files from the deploy branch
           target-folder: prs/${{ needs.get-pr-num.outputs.pr_number }}/javadoc # The folder that we serve our javadoc files from 
-    
-    
- 
