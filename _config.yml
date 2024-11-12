@@ -20,4 +20,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f24/team02-f24-03
 owner: ucsb-cs156-f24
 repo_name: team02-f24-03
-pull_requests: []
+pull_requests: [{"author":{"id":"U_kgDOBtg9vg","is_bot":false,"login":"eugeneLim628","name":""},"headRefName":"revert-107-eugene-issue23","number":115,"title":"Revert 107 eugene issue23","url":"https://github.com/ucsb-cs156-f24/team02-f24-03/pull/115"}]
