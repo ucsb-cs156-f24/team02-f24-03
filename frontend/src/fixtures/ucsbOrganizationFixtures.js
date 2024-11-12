@@ -11,8 +11,8 @@ const ucsbOrganizationFixtures = {
   threeOrganizations: [
     {
       orgCode: "ACM",
-      orgTranslationShort: "ACM",
-      orgTranslation: "ACM",
+      orgTranslationShort: "ACM1",
+      orgTranslation: "ACM2",
       inactive: true,
     },
 

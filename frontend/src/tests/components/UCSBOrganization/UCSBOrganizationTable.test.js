@@ -191,9 +191,7 @@ describe("UCSBOrganizationTable tests", () => {
 
     // assert - check that the navigate function was called with the expected path
     await waitFor(() =>
-      expect(mockedNavigate).toHaveBeenCalledWith(
-        "/ucsborganizations/edit/ACM",
-      ),
+      expect(mockedNavigate).toHaveBeenCalledWith("/ucsborganization/edit/ACM"),
     );
   });
 
@@ -203,7 +201,7 @@ describe("UCSBOrganizationTable tests", () => {
 
     const axiosMock = new AxiosMockAdapter(axios);
     axiosMock
-      .onDelete("/api/ucsborganizations")
+      .onDelete("/api/ucsborganization")
       .reply(200, { message: "UCSBOrganization deleted" });
 
     // act - render the component
@@ -237,7 +235,7 @@ describe("UCSBOrganizationTable tests", () => {
     // assert - check that the delete endpoint was called
 
     await waitFor(() => expect(axiosMock.history.delete.length).toBe(1));
-    expect(axiosMock.history.delete[0].url).toEqual("/api/ucsborganizations");
+    expect(axiosMock.history.delete[0].url).toEqual("/api/ucsborganization");
     expect(axiosMock.history.delete[0].method).toEqual("delete");
     expect(axiosMock.history.delete[0].params).toEqual({ orgCode: "ACM" });
   });
