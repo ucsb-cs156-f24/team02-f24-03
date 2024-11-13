@@ -23,7 +23,7 @@ public class RecommendationRequestWebIT extends WebTestCase {
 
         page.getByText("Recommendation Request").click();
 
-        page.getByText("Create New RecommendationRequest").click();
+        page.getByText("Create RecommendationRequest").click();
         assertThat(page.getByText("Create New recommendationRequest")).isVisible();
         page.getByTestId("RecommendationRequestForm-requesterEmail").fill("requester@gmail.com");
         page.getByTestId("RecommendationRequestForm-professorEmail").fill("professor@gmail.com");
@@ -36,7 +36,7 @@ public class RecommendationRequestWebIT extends WebTestCase {
                 .hasText("explanation");
 
         page.getByTestId("RecommendationRequestTable-cell-row-0-col-Edit-button").click();
-        assertThat(page.getByText("Edit RecommendationRequest")).isVisible();
+        assertThat(page.getByText("Edit Recommendation Request")).isVisible();
         page.getByTestId("RecommendationRequestForm-explanation").fill("Please write me a recommendation");
         page.getByTestId("RecommendationRequestForm-submit").click();
 
