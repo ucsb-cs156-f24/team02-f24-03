@@ -91,6 +91,9 @@ describe("UCSBOrganizationTable tests", () => {
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-orgTranslationShort`),
     ).toHaveTextContent("ACM");
+    expect(
+      screen.getByTestId(`${testId}-cell-row-0-col-Inactive`),
+    ).toHaveTextContent("true");
 
     expect(
       screen.getByTestId(`${testId}-cell-row-1-col-orgCode`),
