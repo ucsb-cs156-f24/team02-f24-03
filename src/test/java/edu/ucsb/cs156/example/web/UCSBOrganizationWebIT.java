@@ -31,19 +31,19 @@ public class UCSBOrganizationWebIT extends WebTestCase {
         page.getByTestId("UCSBOrganizationForm-inactive").selectOption("false");
         page.getByTestId("UCSBOrganizationForm-submit").click();
 
-        assertThat(page.getByTestId("UCSBOrganizationTable-cell-row-0-col-inactive"))
+        assertThat(page.getByTestId("UCSBOrganizationTable-cell-row-0-col-Inactive"))
                 .hasText("false");
 
         page.getByTestId("UCSBOrganizationTable-cell-row-0-col-Edit-button").click();
         assertThat(page.getByText("Edit UCSB Organization")).isVisible();
 
-        page.getByTestId("UCSBOrganizationForm-inactive").fill("true");
+        page.getByTestId("UCSBOrganizationForm-inactive").selectOption("true");
         page.getByTestId("UCSBOrganizationForm-submit").click();
 
-        assertThat(page.getByTestId("UCSBOrganizationTable-cell-row-0-col-inactive")).hasText("true");
+        assertThat(page.getByTestId("UCSBOrganizationTable-cell-row-0-col-Inactive")).hasText("true");
 
         page.getByTestId("UCSBOrganizationTable-cell-row-0-col-Delete-button").click();
 
-        assertThat(page.getByTestId("UCSBOrganizationTable-cell-row-0-col-inactive")).not().isVisible();
+        assertThat(page.getByTestId("UCSBOrganizationTable-cell-row-0-col-Inactive")).not().isVisible();
     }
 }
