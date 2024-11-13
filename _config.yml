@@ -20,4 +20,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f24/team02-f24-03
 owner: ucsb-cs156-f24
 repo_name: team02-f24-03
-pull_requests: [{"author":{"id":"U_kgDOBt2F9Q","is_bot":false,"login":"bsaiju","name":""},"headRefName":"Bharat-HelpRequest-E2E","number":137,"title":"Bharat help request E2E","url":"https://github.com/ucsb-cs156-f24/team02-f24-03/pull/137"},{"author":{"id":"U_kgDOBtzY9A","is_bot":false,"login":"pballani","name":""},"headRefName":"priyanka-team02-2","number":136,"title":"end 2 end","url":"https://github.com/ucsb-cs156-f24/team02-f24-03/pull/136"},{"author":{"id":"U_kgDOBt2F9Q","is_bot":false,"login":"bsaiju","name":""},"headRefName":"Bharat-HelpRequest-IT","number":135,"title":"Bharat Integration Tests Help Request","url":"https://github.com/ucsb-cs156-f24/team02-f24-03/pull/135"}]
+pull_requests: [{"author":{"id":"U_kgDOBtzY9A","is_bot":false,"login":"pballani","name":""},"headRefName":"priyanka-team02-2","number":136,"title":"end 2 end","url":"https://github.com/ucsb-cs156-f24/team02-f24-03/pull/136"}]
