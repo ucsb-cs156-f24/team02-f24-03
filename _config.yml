@@ -20,4 +20,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-f24/team02-f24-03
 owner: ucsb-cs156-f24
 repo_name: team02-f24-03
-pull_requests: [{"author":{"id":"U_kgDOBtzY9A","is_bot":false,"login":"pballani","name":""},"headRefName":"priyanka-team03","number":134,"title":"integration test","url":"https://github.com/ucsb-cs156-f24/team02-f24-03/pull/134"},{"author":{"id":"MDQ6VXNlcjQzMTg5MjU5","is_bot":false,"login":"SameerSRao","name":"Sameer Rao"},"headRefName":"Sameer-MenuItemReview-E2E","number":129,"title":"Added E2E Tests for MenuItemReview","url":"https://github.com/ucsb-cs156-f24/team02-f24-03/pull/129"}]
+pull_requests: [{"author":{"id":"U_kgDOBtzY9A","is_bot":false,"login":"pballani","name":""},"headRefName":"priyanka-team03","number":134,"title":"integration test recommendation request","url":"https://github.com/ucsb-cs156-f24/team02-f24-03/pull/134"}]
