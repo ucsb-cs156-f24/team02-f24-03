@@ -27,7 +27,7 @@ describe("UCSBOrganizationTable tests", () => {
     "orgCode",
     "orgTranslationShort",
     "orgTranslation",
-    "inactive",
+    "Inactive",
   ];
   const testId = "UCSBOrganizationTable";
 
